@@ -1,0 +1,106 @@
+<div class="wrapper" [ngClass]="{'noOverflowOnWeb':this.environmentService.isWeb}">
+  <div class="pricing-box pricing-box-bg-image text-center" *ngIf="getProduct() != null">
+    <div class="logoFlexManager">
+      <div class="logoImage">
+        <img src="./assets/cube-min.png">
+      </div>
+      <h5 class="productTitle">{{this.getProduct().title}}</h5>
+    </div>
+    <p class="price">{{this.getProduct().price}}<sub>/{{this.getProduct().billingPeriodUnit}}</sub></p>
+    <div class="sellingPoints"
+      *ngIf="(this.getProduct().canPurchase) || purchaseInProgress() || (this.environmentService.isMobile && !notOwnedOrAvailableToBegin)">
+      {{getProductSellingPoints()}}
+    </div>
+    <div class="cannotPurchase smallMessageForMobile"
+      *ngIf="this.environmentService.isMobile && !(this.getProduct().canPurchase) && !purchaseInProgress() && notOwnedOrAvailableToBegin">
+      You can not purchase this product because your <span *ngIf="this.environmentService.isiOS">iTunes</span><span
+        *ngIf="this.environmentService.isAndroid">Google</span> account already owns this product. If you wish to
+      purchase
+      this product on this LogSmarter™ account and you already have an active subscription on another LogSmarter™
+      account, you can either cancel your existing subscription and purchase the product on this LogSmarter™ account, or
+      use the restore purchases button to transfer the active subscription to this account.
+    </div>
+    <div class="spinnerButtonWrapper">
+      <div class="spinnerWrapper" *ngIf="this.environmentService.isiOS && purchaseInProgress()">
+        <log-smarter-spinner-wheel [spinnerMessage]="this.spinnerMessage">
+        </log-smarter-spinner-wheel>
+      </div>
+      <div class="spinnerWrapper" *ngIf="this.environmentService.isAndroid && !(this.getProduct().canPurchase)">
+        <log-smarter-spinner-wheel [spinnerMessage]="this.spinnerMessage">
+        </log-smarter-spinner-wheel>
+      </div>
+      <div class='buttonGroup'>
+        <app-beanie-button *ngIf="this.environmentService.isWeb "></app-beanie-button>
+        <button class="lsThemeButton buttonGroupButton" mat-raised-button (click)="this.handlePurchaseClick()"
+          *ngIf="this.environmentService.isiOS && this.getProduct().canPurchase && !purchaseInProgress() ">
+          <div class='buttonFlexManager' fxLayout="row">
+            <div class='buttonIconWrapper'>
+              <mat-icon>check_circle_outline</mat-icon>
+            </div>
+            <div class='buttonTextWrapper'>
+              &nbsp; PURCHASE
+            </div>
+          </div>
+        </button>
+        <button class="lsThemeButton buttonGroupButton" mat-raised-button (click)="this.handlePurchaseClick()"
+          *ngIf="this.environmentService.isAndroid && this.getProduct().canPurchase">
+          <div class='buttonFlexManager' fxLayout="row">
+            <div class='buttonIconWrapper'>
+              <mat-icon>check_circle_outline</mat-icon>
+            </div>
+            <div class='buttonTextWrapper'>
+              &nbsp; PURCHASE
+            </div>
+          </div>
+        </button>
+        <button class="greyButton buttonGroupButton" mat-raised-button (click)="this.dialogRef.close()">
+          <div class='buttonFlexManager' fxLayout="row">
+            <div class='buttonIconWrapper'>
+              <mat-icon>cancel</mat-icon>
+            </div>
+            <div class='buttonTextWrapper'>
+              &nbsp; CLOSE
+            </div>
+          </div>
+        </button>
+      </div>
+    </div>
+    <!-- SEPARATE SMALL MESSAGES BECAUSE THE HIDE/SHOW LOGIC IS PLATFORM DEPENDENT -->
+    <!-- WEB -->
+    <div class="freeTrial" *ngIf="!userIsUnpaid() && this.environmentService.isWeb"> Free Trial -
+      {{this.permissions.daysLeftInCurrentUserTrial()}} Days Left </div>
+    <div class="freeTrial" *ngIf="userIsUnpaid() && this.environmentService.isWeb"> Free Trial - 0 Days Left </div>
+    <div class="freeTrial smallMessageForMobile ios" *ngIf="this.environmentService.isWeb">
+      An amount equal to the price of the subscription, will be applied to youraccount on confirmation of your
+      purchase. Subscriptions will automatically renew for the full price of the subscription within 24-hours prior to
+      the end of the period unless cancelled within 24-hours before the date of the current period. You can cancel
+      anytime after purchase with your account settings. Any unused portion of a free trial
+      period, if offered, will be forfeited if you purchase a subscription.
+    </div>
+    <!-- IOS -->
+    <div class="freeTrial smallMessageForMobile ios"
+      *ngIf="this.environmentService.isiOS && (((this.environmentService.isMobile && this.getProduct().canPurchase) || (this.environmentService.isMobile && !notOwnedOrAvailableToBegin)) && !this.purchaseInProgress())">
+      An amount equal to the price of the subscription, will be applied to your iTunes
+      account on confirmation of your purchase. Subscriptions will automatically renew for the full price of the
+      subscription within 24-hours prior to the end of the period unless cancelled within 24-hours before the date of
+      the current period. You can cancel anytime after purchase with your account settings. Any unused portion of a free
+      trial period, if offered, will be forfeited if you purchase a subscription.
+    </div>
+    <!-- ANDROID -->
+    <div class="freeTrial smallMessageForMobile android"
+      *ngIf="this.environmentService.isAndroid && ((this.environmentService.isMobile && this.getProduct().canPurchase) || (this.environmentService.isMobile && !notOwnedOrAvailableToBegin))">
+      An amount equal to the price of the subscription, will be applied to your Google
+      account on confirmation of your purchase. Subscriptions will automatically renew for the full price of the
+      subscription within 24-hours prior to the end of the period unless cancelled within 24-hours before the date of
+      the current period. You can cancel anytime after purchase with your Google account settings. Any unused portion of
+      a free trial period, if offered, will be forfeited if you purchase a subscription.
+    </div>
+    <div class=" termsAndPP" *ngIf="!purchaseInProgress()">
+      <span class="lsThemeText" (click)="goToTerms()">Terms of Service</span>&nbsp;and&nbsp;<span
+        (click)="goToPrivacy()" class="lsThemeText">Privacy Policy</span>
+      <br>
+      <span class="lsThemeText" (click)="this.IAP.restorePurchases()" *ngIf="this.environmentService.isiOS">Restore
+        Purchases</span>
+    </div>
+  </div>
+</div>

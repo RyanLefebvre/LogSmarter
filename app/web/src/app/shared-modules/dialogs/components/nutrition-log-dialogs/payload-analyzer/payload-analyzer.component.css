@@ -1,0 +1,133 @@
+.feedbackWrapper {
+  border-width: 2px;
+  max-height: 420px;
+  overflow: auto;
+}
+
+.feedbackColumn {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 100%;
+  flex-wrap: wrap-reverse;
+  height: 100%;
+  min-height: 100%;
+  margin-bottom: 20px;
+}
+
+.fbContainer {
+  margin-top: 10px;
+}
+
+.columnVisual {
+  width: 60%;
+  min-height: 305px;
+  height: 100%;
+  border-width: 2px;
+  flex-grow: 1;
+  float: right;
+  margin-top: 10px;
+  align-self: center;
+}
+
+.columnFeedback {
+  margin-top: 10px;
+  width: 35%;
+  flex-grow: 1;
+  min-width: 260px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 100%;
+  max-width: 600px;
+  overflow-y: auto;
+  border-width: 2px;
+  padding-left: 5px;
+}
+
+.feedbackMessage {
+  font-size: small;
+}
+
+.feedbackCategoryTitle {
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.general {
+  width: 95%;
+  max-width: 500px;
+}
+
+.generalVisual {
+  background: rgb(10, 38, 135);
+  background: linear-gradient(72deg, rgba(10, 38, 135, 1) 0%, rgba(224, 34, 130, 1) 100%);
+  min-width: 260px;
+  margin-top: 0px;
+  width: 35%;
+}
+
+.generalFeedback {
+  width: 95%;
+}
+
+.feedbackList {
+  max-height: 305px;
+  overflow-y: auto;
+}
+
+.statement {
+  margin-top: 5px;
+}
+
+.payloadBG {
+  margin-top: 24px;
+}
+
+.payloadUpgradeMessage {
+  max-width: 310px;
+  margin-bottom: 20px;
+}
+
+.logTitle mat-icon {
+  float: left;
+}
+
+.logTitle {
+  width: 100%;
+  font-size: large;
+  text-align: center;
+  font-weight: bold;
+}
+
+.realTitle {
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.wrapper {
+  width: 100%;
+}
+
+.spinnerMessage {
+  width: 100%;
+  text-align: center;
+  font-style: italic;
+  font-weight: bold;
+}
+
+log-smarter-spinner-wheel {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  /**
+  * Next two properties mirror the dataDialogOptions width styles
+  */
+  max-width:575px;
+  width:70vw;
+}
+
+.spinnerWrapper{
+  margin-top:20px;
+}

@@ -1,0 +1,119 @@
+.logTitle {
+  width: 100%;
+  font-size: large;
+  text-align: center;
+  font-weight: bold;
+}
+
+.logTitle mat-icon {
+  float: left;
+}
+
+.logTitleWrapper {
+  text-align: center;
+}
+
+.realTitle {
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.wrapper {
+  overflow-y: hidden;
+}
+
+
+.spinnerWrapper {
+  margin: auto;
+}
+
+.flexManager {
+  height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+.buttonGroup {
+  margin: auto;
+}
+
+.setMenuWidth {
+  width: 200px !important;
+}
+
+
+.maxLogError {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  text-align: center;
+  color: red;
+  font-style: italic;
+}
+
+
+.spinnerMessage {
+  width: 100%;
+  text-align: center;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.buttonGroup {
+  margin: initial;
+}
+
+mat-form-field {
+  text-align: center;
+}
+
+.listHolder {
+  height: 220px;
+  overflow-y: scroll;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.lsHoverText:hover {
+  cursor: pointer;
+}
+
+.existingLog {
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 24px;
+  border-color: #c0c0c0;
+  border-width: 2px;
+  border-style: solid;
+  width: 250px;
+  height: 40px;
+  color: white;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.existingLog:hover {
+  background-color: var(--main-color-darker) !important;
+  cursor: pointer;
+}
+
+.greyButton {
+  background-color: #c0c0c0 !important;
+}
+
+mat-list {
+  height: 100%;
+}
+
+log-smarter-spinner-wheel{
+  display:block;
+  padding-top:20px;
+}

@@ -1,0 +1,35 @@
+.mainContent {
+    width: 95%;
+    min-width:275px;
+    max-width: 1000px;
+    text-align: center;
+    font-size: large;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:10px;
+    margin-bottom:20px;
+  }
+
+  mat-card-subtitle {
+    padding-top: 2%;
+  }
+
+  .lsThemeText{
+    font-weight:xx-large;
+  }
+
+  .modified{
+    text-align:center;
+
+  }
+
+  mat-card-header .mat-card-header-text{
+    width:100%;
+  }
+
+  .list {
+    width: 80%;
+    max-width:300px;
+    text-align: left;
+    margin: 0 auto
+  }

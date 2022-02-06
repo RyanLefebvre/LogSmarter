@@ -1,0 +1,9 @@
+# dependencies
+/node_modules
+/platforms
+/plugins
+/hooks
+/www
+
+#ignore the fat android build
+*.apk

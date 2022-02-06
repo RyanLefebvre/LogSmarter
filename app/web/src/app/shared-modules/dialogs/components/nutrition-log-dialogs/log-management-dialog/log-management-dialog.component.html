@@ -1,0 +1,95 @@
+<div class='wrapper'>
+  <div class='header'>
+    <div class='logTitle'>
+      <mat-icon class='lsThemeText'>settings</mat-icon>
+      <div class='realTitle'>{{this.data.logModel.title}}</div>
+    </div>
+  </div>
+  <mat-divider></mat-divider>
+
+  <div class='buttonGroupWrapper'>
+
+    <log-smarter-spinner-wheel class="spinnerWrapper" *ngIf="showSpinner" [spinnerMessage]="spinnerMessage">
+    </log-smarter-spinner-wheel>
+
+    <div class="buttonColumn" *ngIf="!showSpinner">
+      <div class="buttonGroup" *ngIf="!showSpinner">
+        <button class="greenButton buttonGroupButton" mat-raised-button (click)="handleButtonPress(this.OPEN)">
+          <div class='buttonFlexManager' fxLayout="row">
+            <div class='buttonIconWrapper'>
+              <mat-icon>open_in_new</mat-icon>
+            </div>
+            <div class='buttonTextWrapper'>
+              OPEN
+            </div>
+          </div>
+        </button>
+
+        <button class="blueButton buttonGroupButton" mat-raised-button (click)="handleButtonPress(this.EDIT)">
+          <div class='buttonFlexManager' fxLayout="row">
+            <div class='buttonIconWrapper'>
+              <mat-icon>edit</mat-icon>
+            </div>
+            <div class='buttonTextWrapper'>
+              EDIT
+            </div>
+          </div>
+        </button>
+
+        <button class="redButton buttonGroupButton" mat-raised-button (click)="handleButtonPress(this.DELETE)">
+          <div class='buttonFlexManager' fxLayout="row">
+            <div class='buttonIconWrapper'>
+              <mat-icon>delete</mat-icon>
+            </div>
+            <div class='buttonTextWrapper'>
+              DELETE
+            </div>
+          </div>
+        </button>
+      </div>
+    </div>
+
+    <div class="buttonColumn" *ngIf="!showSpinner">
+      <div class="buttonGroup" *ngIf="!showSpinner">
+        <button class="settingsButton buttonGroupButton" mat-raised-button (click)="handleButtonPress(this.MAIN)">
+          <div class='buttonFlexManager' fxLayout="row">
+            <div class='buttonIconWrapper'>
+              <mat-icon>dashboard</mat-icon>
+            </div>
+            <div *ngIf='!(logIsMainLog())' class='buttonTextWrapper'>
+              SET MAIN
+            </div>
+            <div *ngIf='logIsMainLog()' class='buttonTextWrapper'>
+              REMOVE MAIN
+            </div>
+          </div>
+        </button>
+
+        <button class="lsThemeButton buttonGroupButton" mat-raised-button (click)="handleButtonPress(this.OPEN_TIPS)">
+          <div class='buttonFlexManager' fxLayout="row">
+            <div class='buttonIconWrapper'>
+              <mat-icon>vibration</mat-icon>
+            </div>
+            <div class='buttonTextWrapper'>
+              TIPS
+            </div>
+          </div>
+        </button>
+
+        <button class="blueButton buttonGroupButton" mat-raised-button (click)="handleButtonPress(this.CLOSE)">
+          <div class='buttonFlexManager' fxLayout="row">
+            <div class='buttonIconWrapper'>
+              <mat-icon>cancel_presentation</mat-icon>
+            </div>
+            <div class='buttonTextWrapper'>
+              CLOSE
+            </div>
+          </div>
+        </button>
+      </div>
+    </div>
+
+
+
+  </div>
+</div>

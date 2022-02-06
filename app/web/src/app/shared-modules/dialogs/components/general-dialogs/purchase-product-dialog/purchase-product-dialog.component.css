@@ -1,0 +1,274 @@
+.logTitle {
+  width: 100%;
+  font-size: large;
+  text-align: center;
+  font-weight: bold;
+}
+
+.logTitle mat-icon {
+  float: left;
+  color: red !important
+}
+
+.realTitle {
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  color: red;
+}
+
+.message {
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.features,
+.featureTable {
+  width: 100%;
+  min-width: 310px;
+}
+
+.featureTable tr td {
+  width: 33.33%;
+}
+
+.tdContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.messageHeader {
+  font-weight: bold;
+  font-size: large;
+  margin-bottom: 5px;
+}
+
+.smallTable {
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+}
+
+mat-icon.lsThemeText {
+  font-size: 50px;
+  height: 55px;
+}
+
+.iconSubText {
+  height: 50px;
+}
+
+.wrapper {
+  background: linear-gradient(to right, #1D2671, #C33764);
+  margin-left: auto;
+  margin-right: auto;
+  min-height:500px;
+  max-height:700px;
+  height:100%;
+  overflow-y: scroll;
+}
+
+.pricing-box {
+  height:100%
+}
+
+.text-center {
+  text-align: center;
+}
+
+.pricing-box-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.pricing-box {
+  background-color: #ffffff;
+  box-shadow: 0px 2px 15px 0px rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+  flex: 1;
+  min-width: 250px;
+  max-width: 350px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  padding: 10px;
+}
+
+.pricing-box h5 {
+  text-transform: uppercase;
+}
+
+.price {
+  font-size: 36px;
+  font-weight: 900;
+}
+
+.price sub,
+.price sup {
+  font-size: 16px;
+  font-weight: 100;
+}
+
+.features-list {
+  padding: 0;
+  list-style-type: none;
+}
+
+.features-list li {
+  font-weight: 100;
+  padding: 12px 0;
+  font-weight: 100;
+}
+
+.features-list li:not(:last-of-type) {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary {
+  border-radius: 25px;
+  border: none;
+  background-color: #EC1362;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 10px 15px;
+  margin-top: 20px;
+  text-transform: uppercase;
+  transition: all 0.1s ease-in-out;
+}
+
+.btn-primary:hover {
+  box-shadow: 0px 2px 15px 0px rgba(0, 0, 0, 0.5);
+  transform: translateY(-3px);
+}
+
+.pricing-box-bg-image {
+  background: #C33764;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #1D2671, #C33764);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #1D2671, #C33764);
+  background-size: cover;
+  background-position: center center;
+  color: #ffffff;
+}
+
+.pricing-box-bg-image .features-list li {
+  border-bottom-color: rgba(255, 255, 255, 1);
+}
+
+.pricing-box-bg-image .btn-primary {
+  background-color: #ffffff;
+  color: #000;
+}
+
+.logoImage {
+  width: 125px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.logoImage img {
+  width: 100px;
+  height: 100px;
+}
+
+.wrapper {
+  min-width: 250px;
+  max-width: 350px;
+  width:100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.termsAndPP {
+  margin-top: 15px;
+  font-size: small;
+}
+
+.productTitle {
+  width: 100%;
+  text-align: center;
+}
+
+.spinnerButtonWrapper {
+  margin-top:20px;
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+  justify-content: center;
+  max-width: 250px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.greyButton {
+  background-color: #c0c0c0;
+  margin-top: 15px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.greyButton:hover {
+  background-color: #808080;
+}
+
+.buttonGroupButton {
+  border-radius: 8px;
+}
+
+.freeTrial {
+  font-style: italic;
+}
+
+.lsThemeText:hover {
+  cursor: pointer;
+}
+
+.sellingPoints {
+  width: 95%;
+  font-size:small;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.circles li {
+  position: absolute;
+  display: block;
+  list-style: none;
+  width: 20px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  animation: animate 8s linear infinite;
+  bottom: -120px;
+}
+
+.smallMessageForMobile{
+  font-size: x-small;
+  margin-top:20px;
+}
+
+.cannotPurchase{
+  font-size:small;
+  font-style: italic;
+}
+
+.noOverflowOnWeb{
+  overflow: auto;
+}

@@ -1,0 +1,99 @@
+.logTitle {
+  width: 100%;
+  font-size: large;
+  text-align: center;
+  font-weight: bold;
+}
+
+.logTitle mat-icon {
+  float: left;
+}
+
+.realTitle {
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.spinnerWrapper {
+  max-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.messageHolder {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  height: 250px;
+  margin: 20px;
+}
+
+.message {
+  max-height: 100%;
+  overflow-y: auto;
+}
+
+
+
+.greyButton {
+  background-color: #c0c0c0;
+}
+
+.greyButton:hover {
+  background-color: #808080;
+}
+
+.wrapper {
+  background: #C33764;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #1D2671, #C33764);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #1D2671, #C33764);
+  color: white;
+  padding: 24px;
+  border-radius: 4px;
+}
+
+.buttonGroupWrapper {
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  height: 100%;
+  display: block;
+}
+
+.buttonGroupButton {
+  max-width: 220px;
+}
+
+.buttonGroup {
+  width: 250px;
+}
+
+.buttonGroup button {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.halfButtonWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.halfButtonWrapper button {
+  margin: 5px;
+  width: 150px;
+}

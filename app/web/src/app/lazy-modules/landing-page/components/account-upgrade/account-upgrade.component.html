@@ -1,0 +1,39 @@
+<div class="wrapper">
+    <div class="sendToFront">
+        <mat-card class='mainContent'>
+            <mat-card-header class='noMarginHeaderText'>
+                <mat-card-title>
+                    <h1>
+                        <mat-icon class='lsThemeText'>card_giftcard</mat-icon>Premium
+                    </h1>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-divider></mat-divider>
+            <div class="algDescription">
+                <div class="greyText">
+                    Your LogSmarter™ subscription purchase was successful. It may take a few seconds for
+                    your account upgrade to be processed. We are so excited to have you join our community and help
+                    you optimize your nutrition. We want to hear your story and see your LogSmarter™ journey. Make sure
+                    you stay in touch with us through our social media accounts below!
+                </div>
+                <button mat-raised-button class="lsThemeButton goToDashButton" (click)="goToDash()">
+                    <mat-icon>dashboard</mat-icon> GO TO DASHBOARD
+                </button>
+                <div class="greyText emailWrapper">Questions? Contact: <span
+                        class="algEmail lsThemeText">Support@LogSmarter.net</span>
+                </div>
+            </div>
+        </mat-card>
+        <app-social-dashboard [owners]="['0000']"></app-social-dashboard>
+    </div>
+    <div class="waveWrapper waveAnimation" *ngIf="!(this.environmentService.isMobile)">
+        <div class="waveWrapperInner bgMiddle">
+            <div class="wave waveMiddle" style="background-image: url('./assets/homepage/wave-mid.png')">
+            </div>
+        </div>
+        <div class="waveWrapperInner bgBottom">
+            <div class="wave waveBottom" style="background-image: url('./assets/homepage/wave-bot.png')">
+            </div>
+        </div>
+    </div>
+</div>

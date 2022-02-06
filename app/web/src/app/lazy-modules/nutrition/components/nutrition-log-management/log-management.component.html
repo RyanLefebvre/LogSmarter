@@ -1,0 +1,87 @@
+<form [formGroup]="logManagementForm">
+  <mat-card class='controlPanel'>
+    <mat-card-header class='noMarginHeaderText'>
+      <mat-card-title>
+        <h1>
+          <mat-icon class='lsThemeText'>library_books</mat-icon>Logs
+        </h1>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+    <div class="flexManager">
+      <div class="formSelects">
+        <mat-form-field>
+          <mat-label>Sort By</mat-label>
+          <mat-select formControlName='orderProperty' [disableControl]='spinnerIsShowing()'>
+            <mat-option [value]="PROPERTY_LAST_EDIT">Last Edit</mat-option>
+            <mat-option [value]="PROPERTY_CREATED">Created</mat-option>
+            <mat-option [value]="PROPERTY_TITLE">Title</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Order By</mat-label>
+          <mat-select formControlName='ordering' [disableControl]='spinnerIsShowing()'>
+            <mat-option [value]="ORDER_DESC">Descending</mat-option>
+            <mat-option [value]="ORDER_ASC">Ascending</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class='buttonGroup'>
+        <button mat-raised-button (click)="applyOrdering()" class=" buttonGroupButton"
+          [disabled]='spinnerIsShowing() || (listOfNutritionLogs.length == 0)'
+          [ngClass]=" { 'lsButton' : !(showSpinner) , 'disabledButton' : showSpinner  }" type='button'>
+          <div class='buttonFlexManager' fxLayout="row">
+            <div class='buttonIconWrapper'>
+              <mat-icon>sort</mat-icon>
+            </div>
+            <div class='buttonTextWrapper'>
+              &nbsp; SORT
+            </div>
+          </div>
+        </button>
+
+        <button mat-raised-button (click)="createNewLog()" type='button' class="buttonGroupButton"
+          [disabled]='spinnerIsShowing()'
+          [ngClass]=" { 'lsButton' : !(showSpinner) , 'disabledButton' : showSpinner  }">
+          <div class='buttonFlexManager' fxLayout="row">
+            <div class='buttonIconWrapper'>
+              <mat-icon>add_circle</mat-icon>
+            </div>
+            <div class='buttonTextWrapper'>
+              &nbsp; CREATE
+            </div>
+          </div>
+        </button>
+      </div>
+    </div>
+  </mat-card>
+</form>
+<mat-divider></mat-divider>
+<div *ngIf='!showSpinner'>
+  <mat-card class="lsGradientBackgroundColor logDiv lsHoverText" *ngFor="let nutr_log of listOfNutritionLogs "
+    (click)="openManagementDialog(nutr_log)">
+    <h5>
+      <mat-icon class='lsThemeText'>library_books</mat-icon>&nbsp;<div class="logTitle">{{nutr_log.title}}</div>
+    </h5>
+    <table class="subTextTable">
+      <col width="40%" />
+      <col width="30%" />
+      <col width="30%" />
+      <tr>
+        <td>
+          Goal: <br><span
+            class="lsThemeText subTextValue">{{this.nutrConstants.getDisplayForGoal(nutr_log.goal)}}</span>
+        </td>
+        <td>
+          Created: <br><span class="lsThemeText subTextValue">{{nutr_log.id | date : 'MM/dd/yy'}}</span>
+        </td>
+        <td>
+          Last Edit: <br><span class="lsThemeText subTextValue">{{nutr_log.lastEdit | date : 'MM/dd/yy '}}</span>
+        </td>
+      </tr>
+    </table>
+  </mat-card>
+</div>
+<log-smarter-spinner-wheel *ngIf="showSpinner" [spinnerMessage]="this.spinnerMessage"></log-smarter-spinner-wheel>

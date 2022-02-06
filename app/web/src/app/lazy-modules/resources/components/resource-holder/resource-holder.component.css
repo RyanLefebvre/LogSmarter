@@ -1,0 +1,172 @@
+.mainContent {
+  width: 95%;
+  min-width: 290px;
+  max-width: 1000px;
+  text-align: center;
+  font-size: large;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  min-height: 300px;
+}
+
+.mainContent mat-list {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.lsHoverText:hover {
+  cursor: pointer
+}
+
+.resourceSubList {
+  text-align: center;;
+  margin-bottom: 0 !important;
+  flex-grow: 1;
+  margin-left: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+
+.subresourceListFlexManager {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content;
+  justify-content: space-between;
+  width: 95%;
+  flex-wrap: wrap;
+  list-style-type: none;
+}
+
+.resourceHeaderListItem {
+  margin-top: 25px;
+}
+
+.subResourceHeader {
+  margin-left: 0;
+  width: 100%;
+  text-align: left;
+}
+
+.subResourceHeader {
+  margin-top: 5px !important;
+  margin-bottom: 5px !important;
+  font-size: large;
+  display: flex;
+}
+
+.resourceTitleText {
+  width: 85%;
+  margin-left: auto;
+  margin-right: auto;
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  display: block;
+}
+
+.subresourceContent {
+  width: 100%;
+  height: 100%;
+  min-height: 250px;
+  padding-top: 25px;
+  overflow-x: scroll;
+  overflow-y: scroll;
+  justify-content: center;
+  align-items: center;
+}
+
+.list-item {
+  width: 95%;
+  max-width:300px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 0.9;
+}
+
+.list-item-container {
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 2px;
+  min-height: 50px;
+  border-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.youtube-div {
+  overflow: hidden;
+  padding-top: 62.5%;
+  position: relative;
+  border-color: #ffffff;
+  border-width: 4px;
+  border-style: solid;
+  border-radius: 4px;
+}
+
+.youtube-frame {
+  border: 0;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.titleHolder {
+  text-align: left;
+  margin-left: 10px;
+  width: 90%;
+  min-height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.categoryTitle{
+  font-weight:bold;
+}
+
+.sub-resource-card {
+  border-color: #c0c0c0;
+  border-style: solid;
+  border-width: 2px;
+  padding-bottom: 0px;
+  padding-right: 0px;
+  padding-left: 0px;
+}
+
+.sub-resource-image-wrapper {
+  width: 100%;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.resourceImage {
+  height: 100%;
+  width: 100%;
+}
+
+.openAnalysis {
+  background-image: linear-gradient(white, white);
+}
+
+.openAnalysis:hover {
+  opacity: 0.725;
+  cursor: pointer;
+}
+
+.buttonGroup{
+  margin-bottom:10px;
+}

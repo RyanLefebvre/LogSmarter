@@ -1,0 +1,331 @@
+<div class="maxWidth">
+  <div fxLayout="row" fxLayoutAlign="center" class="wrapper">
+    <form [formGroup]="profileEditForm" (ngSubmit)="handleSubmit()">
+      <mat-card>
+        <mat-card-content>
+          <div class="display">
+            <h1 style="font-size:x-large; text-align: left;">
+              <div class='usernameDisplay'>{{ stateManager.getCurrentUser().username }}</div>
+              <mat-icon class="lsThemeText" style="float:right;">perm_identity</mat-icon>
+            </h1>
+            <mat-divider></mat-divider>
+            <table class='displayTable'>
+
+              <tr *ngIf="userProfileFormBeingEdited()">
+                <td class='lsThemeText userProperty'>
+                  Username
+                </td>
+                <td class='userProperty'>
+                  <mat-form-field class='hideUnderLineWhenDisabled noPaddingFormField'>
+                    <input matInput [formControlName]='FORM_CONTROL_USERNAME' type='text'
+                      [disableControl]='disableUserProfileFormControls()'>
+                  </mat-form-field>
+                </td>
+              </tr>
+
+              <mat-divider></mat-divider>
+
+              <tr>
+                <td class='lsThemeText userProperty'>
+                  Age
+                </td>
+                <td class='userProperty'>
+                  <div *ngIf='!userProfileFormBeingEdited()'>
+                    <mat-form-field class='hideUnderLineWhenDisabled noPaddingFormField'>
+                      <input matInput [formControlName]="FORM_CONTROL_DISPLAY_AGE" [disableControl]='true'>
+                    </mat-form-field>
+                  </div>
+                  <div *ngIf='userProfileFormBeingEdited()'>
+                    <mat-form-field class='hideUnderLineWhenDisabled noPaddingFormField'>
+                      <input matInput [formControlName]='FORM_CONTROL_AGE' type='number'
+                        [disableControl]='disableUserProfileFormControls()' inputMode="numeric">
+                    </mat-form-field>
+                  </div>
+                </td>
+              </tr>
+              <mat-divider></mat-divider>
+
+              <tr>
+                <td class='lsThemeText userProperty'>
+                  Gender
+                </td>
+                <td class='userPropertyValue'>
+                  <div *ngIf='!userProfileFormBeingEdited()'>
+                    <mat-form-field class='hideUnderLineWhenDisabled noPaddingFormField'>
+                      <input matInput [formControlName]="FORM_CONTROL_DISPLAY_GENDER" [disableControl]='true'>
+                    </mat-form-field>
+                  </div>
+                  <div *ngIf='userProfileFormBeingEdited()'>
+                    <mat-form-field class='hideUnderLineWhenDisabled noPaddingFormField'>
+                      <mat-select [formControlName]="FORM_CONTROL_GENDER" style="text-align:center"
+                        [ngClass]=" { 'editSelects' : !userProfileFormBeingEdited() || submitting }"
+                        [disableControl]='disableUserProfileFormControls()'>
+                        <mat-option *ngFor="let gender of prof.getGenderFormControls()" [value]="gender.value">
+                          {{gender.displayName}}
+                        </mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+                </td>
+              </tr>
+
+              <mat-divider></mat-divider>
+
+              <tr>
+                <td class='lsThemeText userProperty'>
+                  Weight
+                </td>
+                <td class='userPropertyValue'>
+                  <div *ngIf='!userProfileFormBeingEdited()'>
+                    <mat-form-field class='hideUnderLineWhenDisabled noPaddingFormField'>
+                      <input matInput [formControlName]="FORM_CONTROL_DISPLAY_WEIGHT" [disableControl]='true'
+                        value="{{ this.stateManager.getCurrentUser().weight_lbs == null ? '-' : this.weightPipe.transform(this.stateManager.getCurrentUser().weight_lbs) }}">
+                    </mat-form-field>
+                  </div>
+                  <div *ngIf='userProfileFormBeingEdited()'>
+                    <mat-form-field class='hideUnderLineWhenDisabled noPaddingFormField'>
+                      <input matInput type="number" [disableControl]='disableUserProfileFormControls()'
+                        inputMode="decimal"
+                        *ngIf="(this.stateManager.getCurrentUser().userPreferences.general.isImperial) "
+                        [formControlName]="FORM_CONTROL_WEIGHT_LB">
+                      <input matInput type="number" [disableControl]='disableUserProfileFormControls()'
+                        inputMode="decimal"
+                        *ngIf="(!(this.stateManager.getCurrentUser().userPreferences.general.isImperial)) "
+                        [formControlName]="FORM_CONTROL_WEIGHT_KG">
+                      <mat-placeholder>
+                        ({{preferenceManager.getWeightUnits(this.stateManager.getCurrentUser().userPreferences.general.isImperial)}}):
+                      </mat-placeholder>
+                    </mat-form-field>
+                  </div>
+
+                </td>
+              </tr>
+
+              <mat-divider></mat-divider>
+
+              <tr>
+                <td class='lsThemeText userProperty'>
+                  Height
+                </td>
+                <td class='userPropertyValue'>
+
+                  <div *ngIf='!userProfileFormBeingEdited()'>
+
+                    <div *ngIf="!this.stateManager.getCurrentUser().userPreferences.general.isImperial">
+                      <mat-form-field class='hideUnderLineWhenDisabled noPaddingFormField'>
+                        <input matInput [formControlName]="FORM_CONTROL_DISPLAY_HEIGHT" [disableControl]='true'>
+                      </mat-form-field>
+                    </div>
+
+                    <div *ngIf="this.stateManager.getCurrentUser().userPreferences.general.isImperial">
+                      <mat-form-field class='hideUnderLineWhenDisabled noPaddingFormField'>
+                        <input matInput [formControlName]="FORM_CONTROL_DISPLAY_HEIGHT" [disableControl]='true'>
+                      </mat-form-field>
+                    </div>
+
+                  </div>
+
+                  <div *ngIf='userProfileFormBeingEdited()'>
+                    <div *ngIf="(!(this.stateManager.getCurrentUser().userPreferences.general.isImperial))">
+                      <mat-form-field class='hideUnderLineWhenDisabled noPaddingFormField'>
+                        <input type="number" [formControlName]="FORM_CONTROL_HEIGHT_CM" matInput inputMode="numeric"
+                          [disableControl]='disableUserProfileFormControls()'>
+                        <mat-placeholder>(cm)</mat-placeholder>
+                      </mat-form-field>
+                    </div>
+
+                    <div *ngIf="(this.stateManager.getCurrentUser().userPreferences.general.isImperial ) "
+                      class="heightInput">
+                      <mat-form-field class="feet hideUnderLineWhenDisabled noPaddingFormField">
+                        <input type="number" [formControlName]="FORM_CONTROL_HEIGHT_FEET" matInput inputMode="numeric"
+                          [disableControl]='disableUserProfileFormControls()'>
+                        <mat-placeholder>(Ft)</mat-placeholder>
+                      </mat-form-field>
+
+                      <mat-form-field class="inches hideUnderLineWhenDisabled noPaddingFormField">
+                        <input type="number" [formControlName]="FORM_CONTROL_HEIGHT_INCHES" matInput inputMode="numeric"
+                          [disableControl]='disableUserProfileFormControls()'>
+                        <mat-placeholder>(Ins)</mat-placeholder>
+                      </mat-form-field>
+                    </div>
+
+                  </div>
+
+                </td>
+              </tr>
+
+              <mat-divider></mat-divider>
+
+              <tr>
+                <td class='lsThemeText userProperty'>Activity</td>
+                <td>
+                  <div *ngIf=' !userProfileFormBeingEdited()'>
+                    <mat-form-field class='hideUnderLineWhenDisabled noPaddingFormField forceMaxContent'>
+                      <input matInput [formControlName]="FORM_CONTROL_DISPLAY_ACTIVITY_LEVEL" [disableControl]='true'>
+                    </mat-form-field>
+                  </div>
+                  <div *ngIf='userProfileFormBeingEdited()'>
+                    <mat-form-field class='hideUnderLineWhenDisabled noPaddingFormField'>
+                      <mat-select [disableControl]='disableUserProfileFormControls()'
+                        [formControlName]="FORM_CONTROL_ACTIVITY_LEVEL"
+                        [ngClass]=" { 'editSelects' : !userProfileFormBeingEdited() || submitting }" class="lsThemeText"
+                        style="text-align:center">
+                        <mat-option *ngFor="let activityLevel of prof.getActivtiyLevelFormControls()"
+                          [value]="activityLevel.value">
+                          {{activityLevel.displayName}}
+                        </mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+                </td>
+              </tr>
+
+              <mat-divider></mat-divider>
+
+              <tr>
+                <td class='lsThemeText userProperty'>
+                  TDEE
+                </td>
+                <td class='userProperty'>
+                  <div *ngIf='!userProfileFormBeingEdited()'>
+                    <mat-form-field class='hideUnderLineWhenDisabled noPaddingFormField'>
+                      <input matInput [formControlName]="FORM_CONTROL_DISPLAY_TDEE" [disableControl]='true'>
+                    </mat-form-field>
+                  </div>
+                  <div *ngIf='userProfileFormBeingEdited()'>
+                    <mat-form-field class='hideUnderLineWhenDisabled noPaddingFormField'>
+                      <input matInput [formControlName]='FORM_CONTROL_TDEE' type='number' inputMode="numeric"
+                        [disableControl]='disableUserProfileFormControls()'>
+                    </mat-form-field>
+                  </div>
+                </td>
+              </tr>
+              <mat-divider></mat-divider>
+
+              <tr>
+                <td class='lsThemeText userProperty'>
+                  Email
+                </td>
+              </tr>
+              <tr>
+                <td colspan='2' class='userPropertyValue'>
+                  <mat-form-field class='emailInput hideUnderLineWhenDisabled noPaddingFormField'
+                    *ngIf="!userProfileFormBeingEdited()">
+                    <input matInput [disableControl]='true' [formControlName]="FORM_CONTROL_DISPLAY_EMAIL">
+                  </mat-form-field>
+                  <mat-form-field class='emailInput hideUnderLineWhenDisabled noPaddingFormField'
+                    *ngIf="userProfileFormBeingEdited()">
+                    <input matInput [disableControl]='disableUserProfileFormControls()'
+                      [formControlName]="FORM_CONTROL_EMAIL">
+                  </mat-form-field>
+                  <div class='emailChangedSubtext' *ngIf='showEmailChangeSuccess'>
+                    {{ EMAIL_CHANGE_SUC_MESSAGE}}
+                  </div>
+                  <div class='emailChangedSubtext' *ngIf='showEmailChangeFailure'>
+                    {{EMAIL_CHANGE_FAIL_MESSAGE}}
+                  </div>
+                </td>
+              </tr>
+              <mat-divider></mat-divider>
+            </table>
+
+          </div>
+
+          <div class='buttonGroup'>
+
+            <button type="button" class="buttonGroupButton" mat-raised-button
+              [disabled]="disableEditResetAndSignOutButton()" *ngIf="showEditResetButton()"
+              (click)="toggleProfileFormEdit()">
+              <div class='buttonFlexManager' fxLayout="row">
+                <div class='buttonIconWrapper'>
+                  <mat-icon>edit</mat-icon>
+                </div>
+                <div class='buttonTextWrapper'>
+                  &nbsp; EDIT PROFILE
+                </div>
+              </div>
+            </button>
+
+            <button type="button" class="buttonGroupButton" mat-raised-button
+              [disabled]="disableEditResetAndSignOutButton()" *ngIf="showEditResetButton()"
+              (click)="openPasswordReset()">
+              <div class='buttonFlexManager' fxLayout="row">
+                <div class='buttonIconWrapper'>
+                  <mat-icon>security</mat-icon>
+                </div>
+                <div class='buttonTextWrapper'>
+                  &nbsp; RESET PASSWORD
+                </div>
+              </div>
+            </button>
+
+            <button type="button" mat-raised-button *ngIf="showSignOutButton()" class="redButton buttonGroupButton"
+              (click)="this.auth.logOutGoHome(this.auth.SIGN_OUT_SUCCESS_MESSAGE)"
+              [disabled]="disableEditResetAndSignOutButton()">
+              <div class='buttonFlexManager' fxLayout=" row">
+                <div class='buttonIconWrapper'>
+                  <mat-icon>remove_circle</mat-icon>
+                </div>
+                <div class='buttonTextWrapper'>
+                  &nbsp; SIGN OUT
+                </div>
+              </div>
+            </button>
+
+            <button type="submit" [disabled]="!profileEditForm.valid" mat-raised-button
+              *ngIf="showConfirmationAndCloseButton()" class='buttonGroupButton'
+              [ngClass]=" { 'greenButton' : profileEditForm.valid , 'disabledButton' : !profileEditForm.valid }">
+              <div class='buttonFlexManager' fxLayout="row">
+                <div class='buttonIconWrapper'>
+                  <mat-icon>done_outline</mat-icon>
+                </div>
+                <div class='buttonTextWrapper'>
+                  &nbsp; CONFIRM
+                </div>
+              </div>
+            </button>
+
+            <button type="button" mat-raised-button *ngIf="showConfirmationAndCloseButton()"
+              class="blueButton buttonGroupButton" (click)="toggleProfileFormEdit()">
+              <div class='buttonFlexManager' fxLayout="row">
+                <div class='buttonIconWrapper'>
+                  <mat-icon>cancel_presentation</mat-icon>
+                </div>
+                <div class='buttonTextWrapper'>
+                  &nbsp; CLOSE
+                </div>
+              </div>
+            </button>
+
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </form>
+  </div>
+
+
+  <app-account></app-account>
+
+  <app-mobile-reminder-config *ngIf="this.environmentService.isMobile"></app-mobile-reminder-config>
+
+  <app-preferences></app-preferences>
+
+
+  <mat-card class="deleteCard" *ngIf="showDeleteButton()">
+    <span>THIS ACTION IS PERMANENT </span>
+    <div class='buttonGroup'>
+      <button class="redButton buttonGroupButton" [disabled]="disableDeleteButton()"
+        matTooltip="PERMANENTLY DELETE ACCOUNT" mat-raised-button (click)="handleDelete()">
+        <div class='buttonFlexManager' fxLayout="row">
+          <div class='buttonIconWrapper'>
+            <mat-icon>delete_forever</mat-icon>
+          </div>
+          <div class='buttonTextWrapper'>
+            &nbsp; DELETE ACCOUNT
+          </div>
+        </div>
+      </button>
+    </div>
+  </mat-card>
+
+</div>

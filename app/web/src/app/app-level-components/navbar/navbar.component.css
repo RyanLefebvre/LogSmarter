@@ -1,0 +1,105 @@
+.menu-spacer {
+  flex: 1 1 auto;
+}
+
+.menuItems a {
+  padding: 10px;
+  padding-right: 0px;
+  margin-right: 0px;
+}
+
+.sideBar {
+  text-align: center;
+}
+
+.wrapper {
+  overflow: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: ghostwhite;
+}
+
+mat-toolbar a:hover {
+  color: #d3d6db;
+  cursor: pointer;
+}
+
+.auth {
+  background-color: white;
+}
+
+.logoImage {
+  height: 68px;
+  width: 88px;
+  margin-bottom: 3.5px;
+}
+
+mat-sidenav-container {
+  background-color: transparent;
+}
+
+.mat-toolbar-row {
+  max-width: 1600px !important;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mobileToolBarTop{
+  top:0;
+  border-bottom-color:#c0c0c0;
+  border-bottom-width:1px;
+  border-bottom-style:solid;
+}
+
+.mobileToolBarBottom{
+  bottom:0;
+  padding:0px;
+  border-top-color:#c0c0c0;
+  border-top-width:1px;
+  border-top-style:solid;
+  background-color :darkgray !important;
+  color:white;
+}
+
+.mobileToolBarBottomContainer{
+  display:flex;
+  align-items: center;
+  justify-content:space-evenly;
+  max-width: 800px;
+  width:100%;
+  margin:auto;
+}
+
+.mobileHeaderIconText{
+  font-size:small;
+  width:fit-content;
+  font-weight: bold;
+  height:15px;
+  position:relative;
+  bottom:7px;
+}
+
+.mobileLinkContainer{
+  display: flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  margin-bottom: 30px;
+}
+
+.mobileToolBar{
+  position:fixed;
+  z-index: 999;
+  height:10vh;
+  max-height:80px;
+  padding:0;
+  margin: 0;
+}
+
+.mobileToolBar a{
+  color:white;
+}
+
+

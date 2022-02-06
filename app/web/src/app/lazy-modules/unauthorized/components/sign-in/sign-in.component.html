@@ -1,0 +1,85 @@
+<form [formGroup]="authenticateForm" (ngSubmit)="handleSubmit()">
+  <div class="fillHeight" [ngClass]=" { 'fillHeightMobile' : this.environmentService.isMobile }">
+    <div fxLayout="row" fxLayoutAlign="center center" class="login-main"
+      [ngClass]=" { 'login-main-mobile' : this.environmentService.isMobile  }">
+      <mat-card class='mainContent'>
+        <mat-card-header class='noMarginHeaderText'>
+          <mat-card-title>
+            <h1>
+              <mat-icon class='lsThemeText'>perm_identity</mat-icon>Sign-In
+            </h1>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-divider></mat-divider>
+        <div class="errorText" *ngIf="showErrorMessage">
+          * {{errorMessage}}
+        </div>
+        <mat-card-content fxLayout="column">
+          <mat-form-field class='email'>
+            <input type="text" autocomplete="username" [formControlName]="FORM_CONTROL_USERNAME" matInput required
+              maxlength="256">
+            <mat-placeholder>Email</mat-placeholder>
+            <mat-icon style="float:right;color: #c0c0c0;">email</mat-icon>
+            <mat-error>
+              email required
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field class='password'>
+            <input autocomplete="password" [formControlName]="FORM_CONTROL_PASSWORD" type="password" matInput required
+              maxlength="256">
+            <mat-placeholder>Password</mat-placeholder>
+            <mat-icon style="float:right;color: #c0c0c0;">security</mat-icon>
+            <mat-error>
+              password required
+            </mat-error>
+          </mat-form-field>
+        </mat-card-content>
+
+        <div class='buttonGroup'>
+          <log-smarter-spinner-wheel *ngIf='showSpinner' [spinnerMessage]="this.spinnerMessage">
+          </log-smarter-spinner-wheel>
+          <button type="submit" mat-raised-button [disabled]="!authenticateForm.valid" class='buttonGroupButton'
+            *ngIf="!showSpinner">
+            <div class='buttonFlexManager' fxLayout="row">
+              <div class='buttonIconWrapper'>
+                <mat-icon>
+                  verified_user
+                </mat-icon>
+              </div>
+              <div class='buttonTextWrapper'>
+                &nbsp; SIGN-IN
+              </div>
+            </div>
+          </button>
+        </div>
+        <div class="clickToReg" *ngIf="!showSpinner">Don't have an account?
+          <br>
+          <a class="lsThemeText" routerLink="/auth/register">
+            Click here to register
+          </a>
+        </div>
+        <div *ngIf="showReset">
+          <mat-divider>
+          </mat-divider>
+          <div class="clickToReg">Forgot your password? <br>
+            <span class="lsThemeText">
+              <a (click)="resetPassword()" style="cursor: pointer;">
+                Click here to reset
+              </a>
+            </span>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+</form>
+<div class="waveWrapper waveAnimation">
+  <div class="waveWrapperInner bgMiddle" *ngIf="!this.environmentService.isMobile">
+    <div class="wave waveMiddle" style="background-image: url('./assets/homepage/wave-mid.png')">
+    </div>
+  </div>
+  <div class="waveWrapperInner bgBottom" *ngIf="!this.environmentService.isMobile">
+    <div class="wave waveBottom" style="background-image: url('./assets/homepage/wave-bot.png')">
+    </div>
+  </div>
+</div>

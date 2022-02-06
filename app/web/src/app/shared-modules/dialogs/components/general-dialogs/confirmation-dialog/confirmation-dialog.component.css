@@ -1,0 +1,52 @@
+
+
+.message {
+  font-size: medium;
+  margin-left:auto;
+  margin-right:auto;
+  width:90%;
+}
+
+.buttons {
+  margin-top: 5px;
+  width: 80%;
+  display: block;
+  margin: auto;
+}
+
+button {
+  display: block;
+  margin: auto;
+  width: 100%;
+  height: 50%;
+  max-width: 300px;
+}
+
+/* Header variables  */
+
+.logTitle {
+  width: 100%;
+  font-size: large;
+  text-align: center;
+  font-weight: bold;
+}
+
+.logTitle mat-icon {
+  float: left;
+}
+
+.realTitle {
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.spinnerWrapper{
+  margin-top:20px;
+}
+.spinnerMessage{
+  width:100%;
+  text-align: center;
+  font-style:italic;
+  font-weight:bold;
+}

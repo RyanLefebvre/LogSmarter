@@ -1,0 +1,59 @@
+<form [formGroup]="authenticateForm" (ngSubmit)="handleSubmit()">
+  <div fxLayout="row" fxLayoutAlign="center center" class="login-main">
+    <div class='mainContent'>
+      <mat-icon class='lsThemeText'>perm_identity</mat-icon>
+      <div fxLayout="column">
+        <div class='operationMessage'> {{this.data.operationMessage}} is a sensitive operation please reauthenticate
+          with your credentials</div>
+        <mat-form-field class='email' *ngIf="!showSpinner">
+          <input type="text" autocomplete="username" [formControlName]="FORM_CONTROL_USERNAME" matInput required
+            maxlength="256">
+          <mat-placeholder>Email</mat-placeholder>
+          <mat-icon style="float:right;">email</mat-icon>
+          <mat-error>
+            email required
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class='password' *ngIf="!showSpinner">
+          <input autocomplete="password" [formControlName]="FORM_CONTROL_PASSWORD" type="password" matInput required
+            maxlength="256">
+          <mat-placeholder>Password</mat-placeholder>
+          <mat-icon style="float:right;">security</mat-icon>
+          <mat-error>
+            password required
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="errorText">
+        <span *ngIf="showErrorMessage">* {{errorMessage}}</span>
+        <br><br>
+      </div>
+
+      <div class="buttonGroup" *ngIf="!showSpinner">
+        <button type="submit" mat-raised-button class="submitButton" [disabled]="!authenticateForm.valid">
+          <div class='buttonFlexManager' fxLayout="row">
+            <div class='buttonIconWrapper'>
+              <mat-icon>verified_user</mat-icon>
+            </div>
+            <div class='buttonTextWrapper'>
+              &nbsp; AUTHENTICATE
+            </div>
+          </div>
+        </button>
+
+
+        <button class="blueButton buttonGroupButton" mat-raised-button (click)="closeDialog(false)">
+          <div class='buttonFlexManager' fxLayout="row">
+            <div class='buttonIconWrapper'>
+              <mat-icon>cancel_presentation</mat-icon>
+            </div>
+            <div class='buttonTextWrapper'>
+              &nbsp; CLOSE
+            </div>
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+</form>
+<log-smarter-spinner-wheel *ngIf="showSpinner" [spinnerMessage]="this.spinnerMessage"></log-smarter-spinner-wheel>

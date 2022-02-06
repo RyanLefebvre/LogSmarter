@@ -1,0 +1,45 @@
+mat-card {
+  display: block;
+  margin: auto;
+  min-width: 40%;
+  width: 95%;
+  text-align: center;
+  margin-top:20px;
+  margin-bottom:20px;
+}
+
+.buttonGroup {
+  margin-top:15px;
+}
+
+.preferenceTable {
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.preferenceHeader {
+  font-size: medium;
+  font-weight: bold;
+}
+
+.subscriptionValue {
+  font-size: medium
+}
+
+/* Align table columns */
+.preferenceTable tr td {
+  width:50%;
+}
+
+mat-form-field {
+  text-align: center;
+}
+
+
+.mimicHeight{
+  height:50px;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}

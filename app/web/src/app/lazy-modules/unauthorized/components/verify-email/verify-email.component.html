@@ -1,0 +1,48 @@
+<div class="wrapper">
+  <div class="sendToFront">
+    <mat-card class='verifyCard'>
+      <mat-card-header class='noMarginHeaderText'>
+        <mat-card-title>
+          <h1>
+            <mat-icon class='lsThemeText'>email</mat-icon>Verify Email
+          </h1>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-divider></mat-divider>
+      <div class="cardText">
+        <div> LogSmarter™ requires you to verify your email, check the email you used to create
+          your account for an email from our team. Follow the instructions in the email to
+          verify your account and then you will be able to sign in! Be sure to check your junk/spam
+          folder if you don't see an email from us.</div>
+      </div>
+
+      <div class="greyText emailWrapper">Questions? Contact:
+        <span class="email lsThemeText">Support@LogSmarter.net</span>
+      </div>
+
+      <br>
+
+      <div class='navLink lsThemeText'>
+        <span class="clickToReg"><a class='lsThemeText' routerLink="/auth/login">Sign-in.</a>
+          <mat-icon>perm_identity</mat-icon>
+        </span>
+      </div>
+
+      <div class='navLink lsThemeText'>
+        <span class="clickToReg"><a class='lsThemeText' routerLink="">Return to the Home Page.</a>
+          <mat-icon>home</mat-icon>
+        </span>
+      </div>
+    </mat-card>
+  </div>
+  <div class="waveWrapper waveAnimation">
+    <div class="waveWrapperInner bgMiddle" *ngIf="!(this.environmentService.isMobile)">
+      <div class="wave waveMiddle" style="background-image: url('./assets/homepage/wave-mid.png')">
+      </div>
+    </div>
+    <div class="waveWrapperInner bgBottom" *ngIf="!(this.environmentService.isMobile)">
+      <div class="wave waveBottom" style="background-image: url('./assets/homepage/wave-bot.png')">
+      </div>
+    </div>
+  </div>
+</div>

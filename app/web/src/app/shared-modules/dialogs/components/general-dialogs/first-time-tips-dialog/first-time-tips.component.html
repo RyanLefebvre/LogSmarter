@@ -1,0 +1,80 @@
+<div class="wrapper">
+  <div class='header'>
+    <div class='logTitle'>
+      <mat-icon class='lsThemeText'>vibration</mat-icon>
+      <div class='realTitle'>{{getCurrentStage().title}}&nbsp;&nbsp;&nbsp;</div>
+    </div>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="messageHolder">
+    <div class="message" id="scrollToTop">{{getCurrentStage().message}}</div>
+  </div>
+  <div class="buttonGroupWrapper">
+    <div class="buttonGroup">
+      <div class="halfButtonWrapper" *ngIf="onIntermediateInstruction()">
+        <button class="lsThemeButton buttonGroupButton" mat-raised-button (click)="previousStage()">
+          <div class='buttonFlexManager' fxLayout="row">
+            <div class='buttonIconWrapper'>
+              <mat-icon>skip_previous</mat-icon>
+            </div>
+            <div class='buttonTextWrapper'>
+              &nbsp; PREV
+            </div>
+          </div>
+        </button>
+        <button class="lsThemeButton buttonGroupButton" mat-raised-button (click)="nextStage()">
+          <div class='buttonFlexManager' fxLayout="row">
+            <div class='buttonTextWrapper'>
+              &nbsp; NEXT
+            </div>
+            <div class='buttonIconWrapper'>
+              <mat-icon>skip_next</mat-icon>
+            </div>
+          </div>
+        </button>
+      </div>
+      <button class="greyButton buttonGroupButton" mat-raised-button *ngIf="onLastInstruction()"
+        (click)="this.dialogRef.close()">
+        <div class='buttonFlexManager' fxLayout="row">
+          <div class='buttonIconWrapper'>
+            <mat-icon>cancel_presentation</mat-icon>
+          </div>
+          <div class='buttonTextWrapper'>
+            &nbsp; CLOSE
+          </div>
+        </div>
+      </button>
+      <button class="greyButton buttonGroupButton" mat-button *ngIf="onIntermediateInstruction()"
+        (click)="this.closeDialog()">
+        <div class='buttonFlexManager' fxLayout="row">
+          <div class='buttonIconWrapper'>
+            <mat-icon>cancel_presentation</mat-icon>
+          </div>
+          <div class='buttonTextWrapper'>
+            &nbsp; CLOSE
+          </div>
+        </div>
+      </button>
+      <button class="lsThemeButton buttonGroupButton" mat-button *ngIf="onFirstInstruction()" (click)="nextStage()">
+        <div class='buttonFlexManager' fxLayout="row">
+          <div class='buttonIconWrapper'>
+            <mat-icon>directions_run</mat-icon>
+          </div>
+          <div class='buttonTextWrapper'>
+            &nbsp; I WANT TO LEARN
+          </div>
+        </div>
+      </button>
+      <button class="greyButton buttonGroupButton" mat-button (click)="closeDialog()" *ngIf="onFirstInstruction()">
+        <div class='buttonFlexManager' fxLayout="row">
+          <div class='buttonIconWrapper'>
+            <mat-icon>cancel_presentation</mat-icon>
+          </div>
+          <div class='buttonTextWrapper'>
+            &nbsp; I ALREADY KNOW
+          </div>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,164 @@
+.pageHeader{
+    text-align: left;
+    height: fit-content;
+}
+
+.videoHolster {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 25px;
+    flex-wrap: wrap;
+    min-width: 310px;
+    max-width: 1000px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+  
+  .video {
+    width: 100%;
+    flex-basis: 60%;
+    min-width: 315px;
+    min-height: 300px;
+    position: relative;
+    padding-bottom: 45%;
+    flex-grow: .8;
+    margin-bottom: 20px;
+    border-color: #c0c0c0;
+    border-width: 4px;
+    border-style: solid;
+    border-radius: 4px;
+    background-color: black;
+  }
+  
+  .buttonGroup {
+    margin-top: 15px;
+  }
+  
+  .video iframe {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .whiteText {
+    color: white;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .videoText {
+    flex-basis: 30%;
+    min-width: 315px;
+    flex-grow: 1;
+    text-align: left;
+    margin-left: 20px;
+    font-size: x-large;
+  }
+  
+  .actionText {
+    max-width: 315px;
+  }
+
+  .wrapper {
+    padding-bottom: 50px;
+    width: 95%;
+    min-width: 310px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .algDescription {
+    text-align: left;
+    margin-top: 10px;
+    font-size: medium;
+  }
+  
+  .algEmail:hover {
+    cursor: pointer;
+  }
+  
+  .emailWrapper {
+    margin-top: 10px;
+  }
+  
+  
+  .valueProp {
+    margin-top: 10px;
+    min-width: 300px;
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 30%;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    flex-grow: 1;
+    margin-bottom: 20px;
+  }
+  
+  .valPropCard {
+    height: 100%;
+    padding: 5px;
+    border-color: #c0c0c0;
+    background-color: white;
+    border-radius:7px;
+  }
+  
+  .icon {
+    border-style: solid;
+    border-width: 2px;
+    width: 100%;
+    min-height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: grey;
+    border: none;
+  }
+  
+  
+  .description {
+    font-size: medium;
+  }
+  
+  .iconImage {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 120px;
+  }
+  
+  .valuePropWrapper {
+      margin-left:auto;
+      margin-right:auto;
+    min-width: 310px;
+    max-width: 1000px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .descriptionTitle{
+      font-size: large;
+      text-align: center;
+      margin:0px;
+  }
+
+  hr{
+      margin:5px;
+  }
+
+  .ourSolution{
+      font-size: xx-large;
+      margin-bottom:10px;
+      margin-top:10px;
+  }
+
+  

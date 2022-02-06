@@ -1,0 +1,81 @@
+<div>
+  <div class='header'>
+    <div class='logTitle'
+      *ngIf="(isInEditMode() && !showSpinner) || shouldShowSpinnerHeader(this.SPINNER_HEADER_UPDATE)">
+      <mat-icon class='lsThemeText'>edit</mat-icon>
+      <div class='realTitle'>UPDATE ENTRY&nbsp;&nbsp;</div>
+    </div>
+    <div class='logTitle'
+      *ngIf="(isInCreateMode() && !showSpinner) || shouldShowSpinnerHeader(this.SPINNER_HEADER_CREATE)">
+      <mat-icon class='lsThemeText'>add_circle_outline</mat-icon>
+      <div class='realTitle'>CREATE ENTRY&nbsp;&nbsp;</div>
+    </div>
+    <div class='logTitle' *ngIf="shouldShowSpinnerHeader(this.SPINNER_HEADER_DELETE)">
+      <mat-icon class='lsThemeText'>delete</mat-icon>
+      <div class='realTitle'>DELETE ENTRY&nbsp;&nbsp;</div>
+    </div>
+  </div>
+  <mat-divider></mat-divider>
+  <div class='maxEntryError' *ngIf="hasReachedorExceededMaxEntries() && !showSpinner">
+    *Maximum number of entries {{this.getMaxEntriesForLog()}}
+  </div>
+  <form [formGroup]="dayEntryForm" *ngIf="!showSpinner">
+    <div class="displayContainer">
+      <div class="mainDisplay">
+        <label>
+          <mat-form-field>
+            <input matInput [formControlName]="this.FORM_CONTROL_DATE" [matDatepicker]="dp3" class="disabledDateInput">
+            <mat-datepicker-toggle matSuffix [for]="dp3"></mat-datepicker-toggle>
+            <mat-datepicker #dp3 disabled="false"></mat-datepicker>
+          </mat-form-field>
+        </label>
+        <mat-dialog-content class="variables">
+          <mat-form-field>
+            <mat-label>Weight({{this.getCorrectWeightUnits()}})</mat-label>
+            <input matInput type="number" [formControlName]="this.FORM_CONTROL_WEIGHT" inputMode="decimal">
+            <mat-error>
+              valid weight required.
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Calories</mat-label>
+            <input matInput type="number" [formControlName]="this.FORM_CONTROL_CALORIES" inputMode="numeric">
+            <mat-error>
+              valid calorie intake required.
+            </mat-error>
+          </mat-form-field>
+        </mat-dialog-content>
+      </div>
+    </div>
+    <br>
+    <table class="buttonTable">
+      <tr>
+        <td colspan='2' class='confirmContainer'>
+          <div class='submitButtonContainer'>
+            <button type="button" [disabled]="disableConfirmButton()" (click)="confirm()"
+              [ngClass]=" { 'lsGradientBackgroundColor lsGradientBackgroundColorHover' : !(disableConfirmButton()) , 'disabledButton' :disableConfirmButton() }"
+              mat-raised-button>
+              <mat-icon>done_outline</mat-icon> CONFIRM
+            </button>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <button type='button' [disabled]="disableDeleteButton() " mat-raised-button (click)="deleteEntry()"
+            [ngClass]=" { 'redButton' : !(disableDeleteButton()) , 'disabledButton' : disableDeleteButton() }">
+            <mat-icon>delete_forever</mat-icon> DELETE
+          </button>
+        </td>
+        <td>
+          <button type='button' mat-button (click)="closeDialog(this.JUST_CLOSE)" class="blueButton" mat-raised-button>
+            <mat-icon>cancel_presentation</mat-icon> CLOSE
+          </button>
+        </td>
+      </tr>
+    </table>
+  </form>
+</div>
+<div class="spinnerWrapper" *ngIf="showSpinner">
+  <log-smarter-spinner-wheel [spinnerMessage]="spinnerMessage"></log-smarter-spinner-wheel>
+</div>

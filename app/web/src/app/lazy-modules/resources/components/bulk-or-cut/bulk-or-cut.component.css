@@ -1,0 +1,47 @@
+.resourcesTitle{
+    border-color:var(--main-color) !important;
+    border-width:2px;
+    border-style:solid;
+    margin-top:10px;
+    margin-bottom:20px;
+    border-radius: 8px;
+    font-size: x-large;
+    max-width:500px;
+    width:80%;
+    font-weight:bold;
+    margin-left:auto;
+    margin-right:auto;
+    display:block;
+}
+
+.subResourcesTitle{
+    text-decoration: underline;
+    margin-top:10px;
+    margin-bottom:20px;
+    border-radius: 8px;
+    font-size: large;
+    max-width:500px;
+    width:80%;
+    font-weight:bold;
+    margin-left:auto;
+    margin-right:auto;
+    display:block;
+    font-size: x-large;
+}
+
+.paragraph{
+    text-align: left;
+    margin-bottom:20px;
+    width:90%;
+    margin-left: auto;
+    margin-right:auto;
+    display:block;
+}
+
+.scenarioTitle{
+    text-align:left;    
+    width:90%;
+    font-weight:bold;
+    margin-left:auto;
+    margin-right:auto;
+}

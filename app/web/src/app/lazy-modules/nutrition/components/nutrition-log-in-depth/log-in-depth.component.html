@@ -1,0 +1,16 @@
+<div class="forceCenterOnUltraLong">
+  <div class="maxWidth" *ngIf='displayInDepth()'>
+    <div class="inDepth">
+      <mat-card class="centerDiv">
+        <app-in-depth-display [displayLogObservable]="displayLogObservable">
+        </app-in-depth-display>
+      </mat-card>
+    </div>
+    <div class="listView">
+      <mat-card class="centerDivBigger">
+        <app-list-view [displayLogObservable]="displayLogObservable"></app-list-view>
+      </mat-card>
+    </div>
+  </div>
+  <log-smarter-spinner-wheel [spinnerMessage]="this.spinnerMessage" *ngIf='!displayInDepth()'></log-smarter-spinner-wheel>
+</div>

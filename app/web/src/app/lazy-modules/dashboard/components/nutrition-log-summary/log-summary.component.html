@@ -1,0 +1,83 @@
+<div class='buttonGroup'>
+  <button mat-raised-button class=" buttonGroupButton" type='button' *ngIf="latestEntryIsIncomplete()">
+    <div class='buttonFlexManager' fxLayout="row" (click)="openFinish()">
+      <div class='buttonIconWrapper'>
+        <mat-icon>check_circle_outline</mat-icon>
+      </div>
+      <div class='buttonTextWrapper'>
+        &nbsp; FINISH {{payload.latestDate | date: 'MM/dd'}}
+      </div>
+    </div>
+  </button>
+  <button mat-raised-button class=" buttonGroupButton" type='button'>
+    <div class='buttonFlexManager' fxLayout="row" (click)="openQuickAdd()">
+      <div class='buttonIconWrapper'>
+        <mat-icon>add_circle_outline</mat-icon>
+      </div>
+      <div class='buttonTextWrapper'>
+        &nbsp; ADD {{getAutoPromptDate() | date: 'MM/dd'}}
+      </div>
+    </div>
+  </button>
+</div>
+<mat-card class="bigWrapper lsGradientBackgroundColor">
+  <div class="headerWrapper lsGradientBackgroundColor">
+    <div class="headerContent">
+      <mat-icon class="nutrLogIcon lsThemeText">
+        library_books
+      </mat-icon>
+      <div class="logTitle">
+        {{logModel?.title}}&nbsp;&nbsp;&nbsp;
+      </div>
+    </div>
+  </div>
+  <div class="overView">
+    <table>
+      <tr class="showBottomBorder">
+        <th class="var lsThemeText">Start <br> Weight</th>
+        <td class="showRightBorder"> {{this.payload?.startWeight | WeightPipe}} </td>
+        <th class="var  lsThemeText">Current <br> Weight</th>
+        <td>{{this.payload?.currentWeight | WeightPipe }}</td>
+      </tr>
+      <tr class="showBottomBorder">
+        <th class="var  lsThemeText ">First <br> Entry</th>
+        <td class="showRightBorder">
+          <span *ngIf="this.payload.startDate">{{this.payload?.startDate | date : 'MM/dd/yy'}}</span>
+          <span *ngIf="!(this.payload.startDate)">-</span>
+        </td>
+        <th class="var lsThemeText">Latest <br> Entry</th>
+        <td>
+          <span *ngIf="this.payload.latestDate ">{{this.payload?.latestDate | date : 'MM/dd/yy'}}</span>
+          <span *ngIf="!(this.payload.latestDate )">-</span>
+        </td>
+      </tr>
+      <tr *ngIf="(this.payload?.goalIntakeRange)">
+        <td colspan="4">
+          <div class="payloadGoalFlexManager">
+            <div class="lsThemeText">{{constants.getDisplayForGoal(logModel?.goal)}}<br> Goal Intake</div>
+            <div>{{ this.payload?.goalIntakeRange.replace("kcal",'')}}</div>
+          </div>
+        </td>
+      </tr>
+      <tr *ngIf="!(this.payload?.goalIntakeRange)">
+        <td></td>
+        <th class="var   lsThemeText">GOAL</th>
+        <td>{{ constants.getDisplayForGoal(logModel?.goal)}}</td>
+      </tr>
+    </table>
+  </div>
+  <div class="buttons">
+    <button (click)="this.fbNutr.openInDepthNutritionLog(this.logModel);" class="open" mat-button style="width:33.33%;">
+      <mat-icon>open_in_new</mat-icon>OPEN
+    </button>
+    <button (click)="this.dialogService.openNutritionLogModifyDialog(this.logModel, false);" class="edit" mat-button
+      style="width:33.33%;">
+      <mat-icon>edit</mat-icon>EDIT
+    </button>
+    <button (click)='this.dialogService.openLogManagementDialog(this.logModel)' class="settings" mat-button
+      style="width:33.33%">
+      <mat-icon>settings</mat-icon>OPTIONS
+    </button>
+
+  </div>
+</mat-card>

@@ -1,0 +1,12 @@
+<div id="parent" *ngIf="display">
+
+  <div id="embed-parent" *ngFor="let media of this.displayedMedia">
+    <app-embed-panel [type]="media.type" [title]="media.title" [data]="media.data"></app-embed-panel>
+    <br>
+  </div>
+
+</div>
+
+<div class="button-div" *ngIf="this.undisplayedMedia.length">
+  <button class="button" (click)="this.addDisplayedPosts(4)" mat-raised-button>Load More</button>
+</div>

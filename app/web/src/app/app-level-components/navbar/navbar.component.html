@@ -1,0 +1,114 @@
+<div class="wrapper">
+  <mat-toolbar *ngIf="showWebNav()">
+    <mat-toolbar-row>
+      <button mat-icon-button (click)="sidenav.toggle()" fxHide.gt-sm>
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span class="menu-spacer"></span>
+      <div class="menuItems" fxShow="true" fxHide.lt-md>
+        <a routerLink="/dashboard" *ngIf="state.userIsAuthenticated()">
+          Dashboard<mat-icon>dashboard</mat-icon>&nbsp;
+        </a>
+        <a routerLink="auth/register" *ngIf="state.userIsNotAuthenticated()">
+          Register<mat-icon>touch_app</mat-icon>&nbsp;
+        </a>
+        <a routerLink="nutrition-logs" *ngIf="state.userIsAuthenticated()">Logs<mat-icon>library_books
+          </mat-icon>
+          &nbsp;</a>
+        <a routerLink='resources' *ngIf="state.userIsAuthenticated()">Resources<mat-icon>widgets</mat-icon>&nbsp;</a>
+        <a routerLink="profile" *ngIf="state.userIsAuthenticated()">Profile<mat-icon>
+            perm_identity</mat-icon>
+          &nbsp;</a>
+        <a routerLink="auth/login" *ngIf="state.userIsNotAuthenticated()">Sign-In<mat-icon>perm_identity</mat-icon>
+          &nbsp;</a>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <mat-toolbar *ngIf="showMobileNav()" class="mobileToolBar mobileToolBarBottom">
+    <div class="mobileToolBarBottomContainer">
+      <a routerLink="/dashboard" class="mobileLinkContainer lsHoverText" routerLinkActive="lsThemeText"
+        *ngIf="state.userIsAuthenticated()">
+        <mat-icon>dashboard</mat-icon>
+        <div class=" mobileHeaderIconText">
+          Dashboard
+        </div>
+      </a>
+      <a routerLink="nutrition-logs" class="mobileLinkContainer lsHoverText" routerLinkActive="lsThemeText"
+        *ngIf="state.userIsAuthenticated()">
+        <mat-icon>library_books</mat-icon>
+        <div class="mobileHeaderIconText">
+          Logs
+        </div>
+      </a>
+      <a routerLink="resources" class="mobileLinkContainer lsHoverText" routerLinkActive="lsThemeText"
+        *ngIf="state.userIsAuthenticated()">
+        <mat-icon>widgets</mat-icon>
+        <div class="mobileHeaderIconText">
+          Resources
+        </div>
+      </a>
+      <a routerLink="profile" class="mobileLinkContainer lsHoverText" routerLinkActive="lsThemeText"
+        *ngIf="state.userIsAuthenticated()">
+        <mat-icon>perm_identity</mat-icon>
+        <div class="mobileHeaderIconText">
+          Profile
+        </div>
+      </a>
+
+      <a routerLink="/" class="mobileLinkContainer lsHoverText" routerLinkActive="lsThemeText"
+        [routerLinkActiveOptions]="{ exact: true }" *ngIf="state.userIsNotAuthenticated()">
+        <mat-icon>home</mat-icon>
+        <div class="mobileHeaderIconText">
+          Home
+        </div>
+      </a>
+
+      <a routerLink="auth/register" class="mobileLinkContainer lsHoverText" routerLinkActive="lsThemeText"
+        *ngIf="state.userIsNotAuthenticated()">
+        <mat-icon>touch_app</mat-icon>
+        <div class="mobileHeaderIconText">
+          Register
+        </div>
+      </a>
+
+      <a routerLink="auth/login" class="mobileLinkContainer lsHoverText" routerLinkActive="lsThemeText"
+        *ngIf="state.userIsNotAuthenticated()">
+        <mat-icon>perm_identity</mat-icon>
+        <div class="mobileHeaderIconText">
+          Sign-In
+        </div>
+      </a>
+
+    </div>
+  </mat-toolbar>
+  <mat-sidenav-container [ngClass]="{'mobileSideNav':this.rubberBandSideNav()}">
+    <mat-sidenav #sidenav [autoFocus]="false">
+      <mat-nav-list class="sideBar">
+        <a (click)="sidenav.toggle()" mat-list-item>
+          <mat-icon>highlight_off</mat-icon>Close
+        </a>
+        <a routerLink="auth/register" *ngIf="state.userIsNotAuthenticated()" mat-list-item>
+          <mat-icon>touch_app</mat-icon>Register
+        </a>
+        <a routerLink="dashboard" *ngIf='state.userIsAuthenticated()' mat-list-item>
+          <mat-icon>dashboard</mat-icon>Dashboard
+        </a>
+        <a routerLink="nutrition-logs" mat-list-item *ngIf="state.userIsAuthenticated()">
+          <mat-icon>library_books</mat-icon>Logs
+        </a>
+        <a routerLink='resources' mat-list-item *ngIf="state.userIsAuthenticated()">
+          <mat-icon>widgets</mat-icon>Resources
+        </a>
+        <a routerLink="auth/login" *ngIf="state.userIsNotAuthenticated()" mat-list-item>
+          <mat-icon>perm_identity</mat-icon>Sign-In
+        </a>
+        <a routerLink="profile" mat-list-item *ngIf="state.userIsAuthenticated()">
+          <mat-icon>perm_identity</mat-icon>Profile
+        </a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <div class="fill-content">
+      <ng-content></ng-content>
+    </div>
+  </mat-sidenav-container>
+</div>

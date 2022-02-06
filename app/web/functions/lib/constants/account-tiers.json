@@ -1,0 +1,35 @@
+[
+    {
+        "name": "basic",
+        "displayName": "Basic",
+        "pricePerMonth": 0,
+        "priority": 0,
+        "maxNumNutrLogs": 1,
+        "maxEntriesPerLog": 20,
+        "maxNumNutrLogTemplates": 0,
+        "maxNumLogVariables": 0,
+        "bulkAndCutRanges": false
+    },
+    {
+        "name": "premiumBasic",
+        "displayName": "Premium Basic",
+        "pricePerMonth": 4.99,
+        "priority": 1,
+        "maxNumNutrLogs": 10,
+        "maxEntriesPerLog": 180,
+        "maxNumNutrLogTemplates": 0,
+        "maxNumLogVariables": 0,
+        "bulkAndCutRanges": false
+    },
+    {
+        "name": "premiumBasicFree",
+        "displayName": "Premium Basic Free",
+        "pricePerMonth": 0,
+        "priority": -1,
+        "maxNumNutrLogs": 10,
+        "maxEntriesPerLog": 180,
+        "maxNumNutrLogTemplates": 0,
+        "maxNumLogVariables": 0,
+        "bulkAndCutRanges": false
+    }
+]

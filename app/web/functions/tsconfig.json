@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "outDir": "lib",
+    "sourceMap": true,
+    "strict": true,
+    "target": "es2017",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "strictNullChecks": false,
+    "typeRoots": ["node_modules/@types"]
+  },
+  "lib": [
+    "esnext.asynciterable"
+  ],
+  // "allowSynteticDefaultImports": true,
+  "compileOnSave": true,
+  "include": [
+    "src"
+  ]
+}

@@ -1,0 +1,78 @@
+<div class="wrapper">
+    <mat-card class='generalRemindersCard' *ngIf="this.remindersForm">
+        <mat-card-content>
+            <div class="display">
+                <h1 style="font-size:x-large; text-align: left;"> Reminders
+                    <mat-icon class="lsThemeText" style="float:right;">notification_important</mat-icon>
+                </h1>
+                <mat-divider></mat-divider>
+                <!----------------------------FORM------------------------------------->
+                <div class="remindertableWrapper" [ngClass]="{'editSelects' : !reminderBeingEdited() || showSpinner}">
+                    <form [formGroup]="remindersForm">
+                        <table class="reminderTable">
+                            <tr>
+                                <td class='lsThemeText reminderHeader'>Weigh In</td>
+                                <td>
+                                    <div class="timeInputWrapper">
+                                        <input type="time" [formControlName]="this.WEIGHT_REMINDER_CONTROL"
+                                            [disableControl]="this.showSpinner || !(reminderBeingEdited())">
+                                    </div>
+                                </td>
+                            </tr>
+                            <mat-divider></mat-divider>
+                            <tr>
+                                <td class='lsThemeText reminderHeader'>Calories</td>
+                                <td>
+                                    <div class="timeInputWrapper">
+                                        <input type="time" [formControlName]="this.CALORIE_REMINDER_CONTROL"
+                                            [disableControl]="this.showSpinner || !(reminderBeingEdited())">
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                        <mat-divider></mat-divider>
+                        <div class="buttonGroup" *ngIf="!showSpinner">
+                            <button mat-raised-button [disabled]="disableEditReminders()"
+                                *ngIf="showEditReminderFormButton()" class="editButton buttonGroupButton"
+                                (click)="tryToEditReminders()">
+                                <div class='buttonFlexManager' fxLayout="row">
+                                    <div class='buttonIconWrapper'>
+                                        <mat-icon>notification_important</mat-icon>
+                                    </div>
+                                    <div class='buttonTextWrapper'>
+                                        &nbsp; SET REMINDERS
+                                    </div>
+                                </div>
+                            </button>
+                            <div *ngIf="reminderBeingEdited()">
+                                <button type="submit" mat-raised-button class="submit buttonGroupButton"
+                                    (click)="submitReminder()"
+                                    [ngClass]=" { 'greenButton' : remindersForm.valid , 'disabledButton' : !remindersForm.valid }">
+                                    <div class='buttonFlexManager' fxLayout="row">
+                                        <div class='buttonIconWrapper'>
+                                            <mat-icon>done_outline</mat-icon>
+                                        </div>
+                                        <div class='buttonTextWrapper'>
+                                            &nbsp; CONFIRM
+                                        </div>
+                                    </div>
+                                </button>
+                                <button mat-raised-button *ngIf="reminderBeingEdited()"
+                                    class="cancel blueButton buttonGroupButton" (click)="toggleEditReminder()">
+                                    <div class='buttonFlexManager' fxLayout="row">
+                                        <div class='buttonIconWrapper'>
+                                            <mat-icon> cancel_presentation</mat-icon>
+                                        </div>
+                                        <div class='buttonTextWrapper'>
+                                            &nbsp; CLOSE
+                                        </div>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

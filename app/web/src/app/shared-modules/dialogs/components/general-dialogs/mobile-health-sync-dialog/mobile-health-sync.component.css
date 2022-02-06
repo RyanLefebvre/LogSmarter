@@ -1,0 +1,76 @@
+.logTitle {
+    width: 100%;
+    font-size: large;
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  .logTitle mat-icon {
+    float: left;
+  }
+  
+  .realTitle {
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  .hkHeart{
+    color:#FF4B76 !important;
+  }
+
+  mat-form-field {
+    text-align: center;
+    width: 80%;
+    max-width:400px;
+    display:block;
+    margin:auto;
+  }
+
+  form{
+      display: flex;
+      align-items: center;
+      justify-content:center;
+      flex-wrap: wrap;
+      min-height:200px;
+      margin-top:20px;
+  }
+
+  .buttonGroup{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:center;
+  }
+
+  .buttonGroup button{
+    width:100%;
+  }
+  
+.rangeMaster{
+  display: flex;
+  align-items: center;
+  flex-wrap:wrap;
+  justify-content: space-evenly;
+  width:90%;
+}
+
+  .rangeChild{
+    width:45%;
+    max-width:150px;
+    display:flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction:column;
+    margin-bottom:20px;
+  }
+
+  .rangeChild input{
+    width:100%;
+    font-size:small;
+    border:0px;
+  }
+
+  .rangeInputHeader{
+    font-size:small;
+  }

@@ -1,0 +1,73 @@
+.resourcesTitle{
+    border-color:var(--main-color) !important;
+    border-width:2px;
+    border-style:solid;
+    margin-top:10px;
+    margin-bottom:20px;
+    border-radius: 8px;
+    font-size: x-large;
+    max-width:500px;
+    width:80%;
+    font-weight:bold;
+    margin-left:auto;
+    margin-right:auto;
+    display:block;
+}
+
+.paragraph{
+    text-align: left;
+    margin-bottom:20px;
+    width:90%;
+    margin-left: auto;
+    margin-right:auto;
+    display:block;
+}
+
+.imageHolder{
+    max-width:500px;
+    margin-left:auto;
+    margin-right: auto;
+    display:block;
+}
+
+.imageHolder img{
+    width:100%;
+}
+
+.resourcesTable{
+    margin-left:auto;
+    margin-right:auto;
+    display:block;
+    max-width:900px;
+    width:95%;
+    margin-bottom:20px;
+}
+
+.resourcesTable tr td, .resourcesTable tr th  {
+    font-size:small;
+    border-color: black;
+    border-style:solid;
+    border-width: 1px;
+}
+
+.lsBackgroundColor{
+    color:white;
+}
+
+.subResourcesTitle{
+    text-decoration: underline;
+    margin-top:10px;
+    margin-bottom:20px;
+    border-radius: 8px;
+    font-size: large;
+    max-width:500px;
+    width:80%;
+    font-weight:bold;
+    margin-left:auto;
+    margin-right:auto;
+    display:block;
+    font-size: x-large;
+}
+
+
+

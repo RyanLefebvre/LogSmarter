@@ -1,0 +1,524 @@
+/* Angular material */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+/* Bootstrap needed for chart.js and auth components*/
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Material Icons'),
+    local('MaterialIcons-Regular'),
+    url("./assets/font/MaterialIcons-Regular.ttf") format('truetype');
+}
+
+.cdk-global-scrollblock{
+  overflow:hidden;
+}
+
+.offsetSelectToCenter .mat-select-value{
+  padding-left:14px;
+}
+
+.noPaddingFormField .mat-form-field-infix{
+  padding: 7px;
+  width:auto;
+}
+
+.noPaddingFormField .mat-select-disabled .mat-select-value{
+  overflow: visible;
+}
+
+.noPaddingFormField .mat-form-field-wrapper{
+  margin-bottom: -1.0em;
+}
+
+.invisible{
+  visibility: hidden;
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+/* APPLY THIS FONT TO EVERY ELEMENT THAT ISNT AN ICON  */
+*:not(i):not(mat-icon) {
+  font-family: 'trebuchet MS', 'arial', 'courier' !important;
+}
+
+.fa-spin-hover:hover {
+  -webkit-animation: fa-spin 2s infinite linear;
+  -moz-animation: fa-spin 2s infinite linear;
+  -o-animation: fa-spin 2s infinite linear;
+  animation: fa-spin 2s infinite linear;
+}
+
+.noContain .cdk-virtual-scroll-content-wrapper {
+  contain: none !important;
+}
+
+/* This helps prevent weird withs when using the cdk virtual scroll livbrary */
+cdk-virtual-scroll-viewport .cdk-virtual-scroll-content-wrapper {
+  position: block !important;
+  width: 100% !important;
+}
+
+html {
+  height: 100vh !important;
+  width: 100% !important;
+}
+
+mat-sidenav-container.mobileSideNav mat-sidenav-content{
+  height:90vh !important;
+  overflow:auto !important ;
+}
+
+.hideOverflow{
+  overflow: hidden;
+}
+
+body {
+  background-image: var(--backgroundImage);
+  margin: 0;
+  height: 100%;
+}
+
+.mat-option-text {
+  text-align: center;
+}
+
+.mat-select-value {
+  text-align: center !important;
+}
+
+.mat-drawer-content {
+  overflow: hidden !important;
+  height: 100%;
+}
+
+app-footer {
+  background-color: ghostwhite;
+}
+
+.bold {
+  font-weight: bold;
+  font-size: 30px;
+}
+
+/* Make sure that all disabled inputs are the same color  */
+.mat-input-element:disabled,
+.mat-select-disabled .mat-select-value {
+  color: black !important;
+  opacity: 1 !important;
+}
+
+/* Mostly for profile / preferences comp */
+.hideUnderLineWhenDisabled.mat-form-field-disabled .mat-form-field-underline {
+  width: 0% !important;
+}
+
+/* GLOBAL STYLE CLASSES */
+mat-error {
+  color: red;
+  font-style: italic;
+}
+
+
+/* for mat-card-headers */
+.mat-card-header.noMarginHeaderText .mat-card-header-text {
+  margin: 0 !important;
+}
+
+.mat-dialog-container {
+  overflow-x: hidden !important;
+}
+
+
+mat-placeholder {
+  color: var(--main-color);
+  font-weight: bold;
+}
+
+
+/* Service bot stuff  */
+
+.servicebot-btn,
+.servicebot-btn-primary {
+  background: var(--main-color) !important;
+  border-color: var(--main-color) !important;
+  color: white !important;
+}
+
+.servicebot-btn:hover,
+.servicebot-btn-primary:hover {
+  background: var(--main-color-darker);
+  border-color: var(--main-color-darker);
+  color: white;
+}
+
+.servicebot-radio-button-wrapper,
+.servicebot-radio-button-wrapper-checked {
+  border-color: var(--main-color) !important;
+  color: var(--main-color) !important;
+}
+
+.servicebot-currency,
+.__next-payment,
+.servicebot-tag-geekblue {
+  color: var(--main-color) !important;
+}
+
+/*////////////////////////////////// LS THEME STYLES ////////////////////////////////////////// */
+/* custom css property*/
+:root {
+  --main-color: #43dbbd;
+  --main-color-darker: #3B896D;
+  --backgroundImage: url('./assets/topography.png');
+}
+
+*:focus {
+  outline: var(--main-color);
+}
+
+mat-sidenav-container a:hover {
+  color: var(--main-color);
+}
+
+/*NavBar styles*/
+mat-toolbar {
+  background-color: var(--main-color) !important;
+  color: ghostwhite !important;
+}
+
+
+.mat-button-toggle-checked {
+  background-color: var(--main-color) !important;
+  color: white !important;
+}
+
+.mat-checkbox-checked.mat-accent .mat-checkbox-background,
+.mat-checkbox:not(.mat-checkbox-disabled) .mat-checkbox-ripple .mat-ripple-element {
+  background-color: var(--main-color) !important;
+}
+
+.mat-ink-bar {
+  background-color: var(--main-color) !important;
+}
+
+.mat-focused .mat-form-field-underline .mat-form-field-ripple {
+  background: var(--main-color);
+}
+
+.mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+  background-color: var(--main-color) !important;
+}
+
+.mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
+  background-color: var(--main-color) !important;
+}
+
+.mat-radio-outer-circle,
+.mat-radio-inncer-circe {
+  border-color: var(--main-color);
+}
+
+.mat-progress-spinner circle,
+.mat-spinner circle {
+  stroke: var(--main-color) !important;
+}
+
+.mat-button,
+.mat-raised-button {
+  color: ghostwhite;
+  background-color: var(--main-color);
+  border-color: var(--main-color);
+}
+
+.mat-button:hover,
+.mat-raised-button:hover {
+  background: var(--main-color-darker);
+}
+
+.mat-select-arrow {
+  color: var(--main-color) !important;
+}
+
+
+mat-label,
+mat-option {
+  color: var(--main-color) !important;
+}
+
+.greyText {
+  color: #6e6e6e;
+}
+
+.lsThemeText {
+  color: var(--main-color) !important;
+}
+
+.lsThemeText:hover {
+  color: var(--main-color);
+}
+
+.lsDarkHoverText:hover {
+  color: var(--main-color-darker);
+}
+
+.lsBackgroundColor {
+  background-color: var(--main-color) !important;
+}
+
+.lsGradientBackgroundColor {
+  background: #C33764 !important;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #1D2671, #C33764) !important;
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #1D2671, #C33764) !important;
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: white;
+}
+
+.lsGradientBackgroundColorHover:hover {
+  background: #C33764 !important;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #0f133b, #a82c54) !important;
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #0f133b, #a82c54) !important;
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: white;
+}
+
+.lsHoverText:hover {
+  color: var(--main-color) !important;
+}
+
+.lsButton {
+  background: var(--main-color);
+  color: white;
+}
+
+.lsButton:hover {
+  background: var(--main-color-darker);
+}
+
+.lsBottomBorder {
+  border-bottom-color: var(--main-color) !important;
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+}
+
+.pricingBorder {
+  border-color: var(--main-color) !important;
+}
+
+/*////////////////////////////////// Styled Buttons ////////////////////////////////////////// */
+.disabledButton {
+  background: darkgrey;
+  border-color: darkgrey;
+}
+
+.disabledButton:hover {
+  background: darkgrey;
+  border-color: darkgrey;
+}
+
+.greenButton {
+  color: white;
+  background: #31bf49;
+}
+
+.greenButton:hover {
+  background-color: #1f7c2e;
+}
+
+.redButton {
+  background-color: #f4424b;
+  color: white;
+}
+
+.redButton:hover {
+  background: #af3137;
+}
+
+.blueButton {
+  color: white;
+  background-color: #4286f4;
+}
+
+.blueButton:hover {
+  background: #21457f;
+}
+
+.settingsButton {
+  background: #c0d7fc;
+}
+
+.settingsButton:hover {
+  background: #7a8aa3;
+}
+
+
+.redditButton {
+  background: #FF5700;
+}
+
+.redditButton:hover {
+  background: #d14902;
+}
+
+.facebookButton {
+  background: #4267B2;
+}
+
+.facebookButton:hover {
+  background: #424db2;
+}
+
+.twitterButton {
+  background: #00aced;
+}
+
+.twitterButton:hover {
+  background: #0084b4;
+}
+
+.mintButton {
+  background-color: #66ff66;
+  color: white;
+}
+
+.mintButton:hover {
+  background-color: #52d167;
+
+}
+
+.app-full-bleed-dialog .mat-dialog-container {
+  padding: 0;
+}
+
+/*////////////////////////////////// Button Group ////////////////////////////////////////// */
+
+/* BUTTONGROUP PATTERN IS AS FOLLOWS:
+            <button class="buttonGroupButton" mat-raised-button>
+              <div class='buttonFlexManager' fxLayout="row">
+                <div class='buttonIconWrapper'>
+                  <mat-icon> ICON </mat-icon>
+                </div>
+                <div class='buttonTextWrapper'>
+                  &nbsp; BUTTON TEXT
+                </div>
+              </div>
+            </button>
+ */
+
+.buttonGroup {
+  width: 220px;
+  display: block;
+  margin: auto;
+}
+
+.buttonGroup .buttonGroupButton {
+  width: 100%;
+  margin-top: 2.5%;
+  display: flex;
+}
+
+.halfButtonWrapper.buttonGroupButton {
+  width: 100%;
+  margin-top: 2.5%;
+  display: flex;
+}
+
+
+.buttonGroup .buttonIconWrapper mat-icon {
+  vertical-align: middle;
+}
+
+.mat-button-wrapper {
+  width: 100% !important;
+}
+
+
+.buttonGroup .buttonTextWrapper {
+  display: block;
+  margin: auto;
+  text-align: center;
+}
+
+.buttonFlexManager {
+  width: 100%;
+}
+
+/* ////////////////////////////////// SNACKBAR ////////////////////////////////////////// */
+.success-snackbar {
+  background: #31bf49;
+}
+
+.failure-snackbar {
+  background-color: #f4424b;
+}
+
+.warning-snackbar {
+  background-color: yellow;
+  color: black;
+}
+
+.warning-snackbar .mat-simple-snackbar {
+  color: black;
+}
+
+.mat-simple-snackbar {
+  font-weight: bold;
+}
+
+.success-snackbar,
+.failure-snackbar,
+.warning-snackbar {
+  color: white;
+  font-size: large;
+}
+
+.mat-snack-bar-container {
+  text-align: center;
+  max-width: 275px !important;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mat-simple-snackbar {
+  display: inline-block !important;
+}
+
+.mat-snack-bar-handset .mat-snack-bar-container {
+  margin: auto !important;
+  margin-top: 10px !important;
+}
+
+.cdk-overlay-container .cdk-global-overlay-wrapper .cdk-overlay-pane {
+  overflow-y: auto !important;
+}

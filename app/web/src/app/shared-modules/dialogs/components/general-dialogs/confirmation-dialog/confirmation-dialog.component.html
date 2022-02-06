@@ -1,0 +1,37 @@
+<div class="wrapper">
+  <div class='header'>
+    <div class='logTitle'>
+      <mat-icon class='lsThemeText'>delete</mat-icon>
+      <div class='realTitle'>DELETE&nbsp;&nbsp;&nbsp;</div>
+    </div>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="message" *ngIf="!showSpinner">{{this.data.message}}</div>
+  <br>
+  <div class="buttonGroup" *ngIf="!showSpinner">
+    <button class="buttonGroupButton" [disabled]="showSpinner" mat-raised-button (click)="confirm()"
+      [ngClass]=" { 'redButton' : !showSpinner , 'disabledButton' : showSpinner  }">
+      <div class='buttonFlexManager' fxLayout="row">
+        <div class='buttonIconWrapper'>
+          <mat-icon>delete_forever</mat-icon>
+        </div>
+        <div class='buttonTextWrapper'>
+          &nbsp; DELETE
+        </div>
+      </div>
+    </button>
+    <button class="buttonGroupButton" [disabled]="showSpinner" mat-raised-button (click)="closeDialog()"
+      [ngClass]=" { 'blueButton' : !showSpinner , 'disabledButton' : showSpinner  }">
+      <div class='buttonFlexManager' fxLayout="row">
+        <div class='buttonIconWrapper'>
+          <mat-icon>cancel_presentation</mat-icon>
+        </div>
+        <div class='buttonTextWrapper'>
+          &nbsp; CLOSE
+        </div>
+      </div>
+    </button>
+  </div>
+</div>
+<log-smarter-spinner-wheel class="spinnerWrapper" *ngIf="showSpinner" [spinnerMessage]="this.data.spinnerMessage">
+</log-smarter-spinner-wheel>

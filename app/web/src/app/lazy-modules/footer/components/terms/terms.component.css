@@ -1,0 +1,11 @@
+.holder {
+  width: 95%;
+  min-width: 275px;
+  max-width: 1000px;
+  text-align: center;
+  font-size: large;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  margin-bottom:20px;
+}

@@ -1,0 +1,73 @@
+<div class="forceBigHeight lsGradientBackgroundColor">
+  <div class="wrapper">
+    <div class="logoWrapper">
+      <img class='logo' src="./assets/cube-min.png">
+    </div>
+    <div class="buttons" [ngClass]="{'forceFullWidth':this.environmentService.isMobile}"
+      *ngIf="this.stateManager.userIsNotAuthenticated();">
+      <h3>New To LogSmarter™?</h3>
+      <div class="buttonGroup">
+        <button mat-raised-button type="button" class="buttonGroupButton" (click)="this.goToRegister()">
+          <div class='buttonFlexManager' fxLayout="row">
+            <div class='buttonIconWrapper'>
+              <mat-icon>
+                touch_app</mat-icon>
+            </div>
+            <div class='buttonTextWrapper'>
+              &nbsp;REGISTER
+            </div>
+          </div>
+        </button>
+      </div>
+      <h3>Already Registered?</h3>
+      <div class="buttonGroup">
+        <button mat-raised-button type="button" class="buttonGroupButton" (click)="this.goToSignIn()">
+          <div class='buttonFlexManager' fxLayout="row">
+            <div class='buttonIconWrapper'>
+              <mat-icon>
+                perm_identity</mat-icon>
+            </div>
+            <div class='buttonTextWrapper'>
+              &nbsp;SIGN-IN
+            </div>
+          </div>
+        </button>
+      </div>
+    </div>
+    <div class="buttons" [ngClass]="{'forceFullWidth':this.environmentService.isMobile}"
+      *ngIf="this.stateManager.userIsAuthenticated();">
+      <h3>Go To App</h3>
+      <div class="buttonGroup">
+        <button mat-raised-button type="button" class="buttonGroupButton" (click)="this.goToDash()">
+          <div class='buttonFlexManager' fxLayout="row">
+            <div class='buttonIconWrapper'>
+              <mat-icon>dashboard</mat-icon>
+            </div>
+            <div class='buttonTextWrapper'>
+              &nbsp;DASHBOARD
+            </div>
+          </div>
+        </button>
+      </div>
+    </div>
+    <div class=" termsAndPP">
+      <span class="lsThemeText" (click)="goToTerms()">Terms of Service</span>&nbsp;and&nbsp;<span
+        (click)="goToPrivacy()" class="lsThemeText">Privacy Policy</span>
+    </div>
+    <div class="area lsGradientBackgroundColor">
+      <ul class="circles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+  </div>
+
+</div>

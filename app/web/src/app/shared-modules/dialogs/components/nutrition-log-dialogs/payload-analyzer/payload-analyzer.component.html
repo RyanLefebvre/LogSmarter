@@ -1,0 +1,91 @@
+<div class='wrapper'>
+  <div class='header'>
+    <div class='logTitle'>
+      <mat-icon class='lsThemeText'>timeline</mat-icon>
+      <div class='realTitle'>ALGORITHM FEEDBACK</div>
+    </div>
+  </div>
+  <mat-divider></mat-divider>
+  <div *ngIf="!showUpgradeDisplay() && !showSpinner">
+    <div class="feedbackWrapper">
+      <!-- GENERAL -->
+      <div class="feedbackColumn general" *ngIf="showGeneral">
+        <div class="columnFeedback generalFeedback">
+          <div *ngFor="let feedback of generalFeedbackList">
+            <div class="lsThemeText">{{feedback.title}}</div>
+            <div>
+              {{feedback.message}}
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- CALORIES  -->
+      <mat-divider *ngIf="showCalories && showWeight"></mat-divider>
+      <div class="feedbackColumn calories" *ngIf="showCalories">
+        <div class="columnFeedback">
+          <div class="fbContainer" *ngFor="let feedback of calorieFeedbackList">
+            <div class="lsThemeText">{{feedback.title}}</div>
+            <div class="feedbackMessage">
+              {{feedback.message}}
+            </div>
+          </div>
+        </div>
+        <div class="columnVisual">
+          <canvas baseChart [chartType]="calorieChartType" [datasets]="calorieChartData" [labels]="calorieChartLabels"
+            [options]="chartOptions">
+          </canvas>
+        </div>
+      </div>
+      <!-- WEIGHT  -->
+      <div class="feedbackColumn weight" *ngIf="showWeight">
+        <div class="columnFeedback">
+          <div class="fbContainer" *ngFor="let feedback of weightFeedbackList">
+            <div class="lsThemeText">{{feedback.title}}</div>
+            <div class="feedbackMessage">
+              {{feedback.message}}
+            </div>
+          </div>
+        </div>
+        <div class="columnVisual">
+          <canvas baseChart [datasets]="weightChartData" [labels]="weightChartLabels" [chartType]="weightChartType"
+            [options]="chartOptions">
+          </canvas>
+        </div>
+      </div>
+    </div>
+    <div class="buttonGroup">
+      <button type="button" class="buttonGroupButton blueButton" mat-raised-button (click)="closeDialog()">
+        <div class='buttonFlexManager' fxLayout="row">
+          <div class='buttonIconWrapper'>
+            <mat-icon>cancel_presentation</mat-icon>
+          </div>
+          <div class='buttonTextWrapper'>
+            &nbsp; CLOSE
+          </div>
+        </div>
+      </button>
+    </div>
+  </div>
+  <div *ngIf="showUpgradeDisplay() && !showSpinner">
+    <div *ngIf="!showInDepth" class="payloadUpgradeMessage">
+      The LogSmarter™ algorithm provides our user's with personalized feedback on their data to help
+      them reach their goals. Click the button below to upgrade your account and unlock this feature!
+    </div>
+    <div class="buttonGroup">
+      <app-beanie-button></app-beanie-button>
+      <button type="button" class="buttonGroupButton blueButton" mat-raised-button (click)="closeDialog()">
+        <div class='buttonFlexManager' fxLayout="row">
+          <div class='buttonIconWrapper'>
+            <mat-icon>cancel_presentation</mat-icon>
+          </div>
+          <div class='buttonTextWrapper'>
+            &nbsp; CLOSE
+          </div>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+<div class="spinnerWrapper">
+  <log-smarter-spinner-wheel [spinnerMessage]="this.spinnerMessage" *ngIf="showSpinner"></log-smarter-spinner-wheel>
+</div>

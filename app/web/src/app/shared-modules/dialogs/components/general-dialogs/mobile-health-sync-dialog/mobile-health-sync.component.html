@@ -1,0 +1,74 @@
+<div class="wrapper">
+    <div class='header'>
+        <div class='logTitle'>
+            <mat-icon class='hkHeart'>flip_camera_android</mat-icon>
+            <div class='realTitle' *ngIf="this.environmentService.isAndroid">Google Fit Sync</div>
+            <div class='realTitle' *ngIf="this.environmentService.isiOS">Apple Health Sync</div>
+        </div>
+    </div>
+    <mat-divider></mat-divider>
+    <form [formGroup]="SYNC_FORM">
+        <mat-form-field>
+            <mat-label>Range of Data To Sync For</mat-label>
+            <mat-select [formControlName]="this.SYNC_FORM_RANGE_NAME" class="offsetSelectToCenter">
+                <mat-option [value]="this.SYNC_FORM_RANGE_TODAY">
+                    Just Today
+                </mat-option>
+                <mat-option [value]="SYNC_FORM_RANGE_WHOLE_LOG">
+                    Entire Log
+                </mat-option>
+                <mat-option [value]="SYNC_FORM_RANGE_CUSTOM">
+                    Custom Range
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <div class="rangeMaster" *ngIf="shouldShowRangeControls()">
+            <div class="rangeChild">
+                <div class="rangeInputHeader lsThemeText">Begin</div>
+                <input type="date" [formControlName]="this.FORM_CONTROL_NAME_FROM">
+            </div>
+            <div class="rangeChild lsThemeText">
+                <div class="rangeInputHeader">End</div>
+                <input type="date" [formControlName]="this.FORM_CONTROL_NAME_TO">
+            </div>
+        </div>
+        <mat-form-field>
+            <mat-label>Override Existing Log Data For Conflicts?</mat-label>
+            <mat-select [formControlName]="this.SYNC_FORM_OVERRIDE_EXISTING_DATA_NAME" class="offsetSelectToCenter">
+                <mat-option [value]="this.OVERRIDE_NO">
+                    No
+                </mat-option>
+                <mat-option [value]="this.OVERRIDE_YES">
+                    Yes
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </form>
+    <div class="buttonGroup">
+        <log-smarter-spinner-wheel [spinnerMessage]="this.iosSpinnerMessage" *ngIf="showSpinner && this.environmentService.isiOS">
+        </log-smarter-spinner-wheel>
+        <log-smarter-spinner-wheel [spinnerMessage]="this.androidSpinnerMessage" *ngIf="showSpinner && this.environmentService.isAndroid">
+        </log-smarter-spinner-wheel>
+        <button mat-raised-button class="lsThemeButton buttonGroupButton" (click)="handleSubmit()" *ngIf="!showSpinner">
+            <div class='buttonFlexManager' fxLayout="row">
+                <div class='buttonIconWrapper'>
+                    <mat-icon>flip_camera_android</mat-icon>
+                </div>
+                <div class='buttonTextWrapper'>
+                    &nbsp; SYNC DATA&nbsp;&nbsp;
+                </div>
+            </div>
+        </button>
+        <button mat-raised-button (click)="this.dialogRef.close()" class="blueButton buttonGroupButton"
+            *ngIf="!showSpinner">
+            <div class='buttonFlexManager' fxLayout="row">
+                <div class='buttonIconWrapper'>
+                    <mat-icon>cancel_presentation</mat-icon>
+                </div>
+                <div class='buttonTextWrapper'>
+                    &nbsp; CLOSE&nbsp;&nbsp;
+                </div>
+            </div>
+        </button>
+    </div>
+</div>

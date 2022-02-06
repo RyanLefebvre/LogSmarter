@@ -1,0 +1,96 @@
+.bigWrapper {
+  height: 100%;
+  width: 100%;
+}
+
+.forceSpinnerToMiddle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.graph {
+  display: block;
+  margin: auto;
+  height: 37.5vh;
+  min-height: 275px;
+}
+
+canvas {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.flexManager {
+  width: 100%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+select {
+  /* aligns the selcted var in the center  */
+  text-align-last: center;
+  width: 75%;
+  border: none;
+  font-size: small;
+}
+
+.flexManager {
+  margin: auto;
+  width: 100%;
+  display: flex;
+  border-top-color: #C0C0C0;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-bottom-color: #C0C0C0;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  justify-content: space-evenly;
+}
+
+log-smarter-spinner-wheel {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.spinnerWrapper {
+  height: 37.5vh;
+  min-height: 275px;
+}
+
+.flexChild {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+}
+
+.flexChildWrapper {
+  width: 115px;
+}
+
+
+.graphType {
+  width: 85px;
+}
+
+.graphSelect {
+  width: 90px;
+}
+
+.graphSelect:hover {
+  cursor: pointer;
+}
+
+
+.buttons {
+  margin-left: auto;
+  margin-right: auto;
+  font-size: small;
+}
+
+.lock {
+  margin: 0 !important;
+  color: #c0c0c0;
+}

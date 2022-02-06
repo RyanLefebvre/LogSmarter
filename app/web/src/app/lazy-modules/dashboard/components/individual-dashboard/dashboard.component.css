@@ -1,0 +1,130 @@
+.aboveDashboard  {
+  height:375px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.summaryContainer{
+  margin:auto;
+  display:block;
+}
+
+.bigWrapper{ 
+  width: 100%;
+  max-width: 1600px;
+  min-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.flexChild {
+  min-width: 315px;
+  width: 95%;
+}
+
+.flexManager {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-left: auto;
+  margin-right: auto;
+  border-width: 2px;
+  height: 100%;
+  width: 100%;
+}
+
+.nutritionLog {
+  min-height: 250px;
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.summaryContainer {
+  width: 95%;
+}
+
+.stats {
+  flex-basis: 100%;
+}
+
+.noNutrLog {
+  max-width: 220px;
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}
+
+.setMainMessage {
+  text-align: center;
+  margin-top: 10px;
+  min-width: 310px;
+  width: 95%;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.setMainMessageHeader {
+  font-weight: bold;
+}
+
+.resourcesLink {
+  color: #C0C0C0;
+}
+
+.resourcesLink:hover {
+  cursor: pointer;
+}
+
+.dashboardWrapper {
+  margin-top: 25px;
+}
+
+.messageCard {
+  text-align: left;
+  color: white;
+  font-size:small
+}
+
+.setMainMessageHeader {
+  text-align: center;
+  font-weight: bold;
+}
+
+.mainLogHeader{
+  font-size:large;
+}
+
+.syncWithHealthKit{
+background-color: white;
+}
+
+.syncWithHealthKit:hover{
+  background-color: #e4e2e2;
+}
+
+.smallText{
+  font-size: small !important;
+}
+
+.hkHeart{
+  color:#FF4B76 !important;
+  margin-bottom:4px;
+}
+
+.buttonGroup{
+  width:275px;
+  margin-top:25px;
+}
+
+.buttonGroupButton{
+  border-radius:20px;
+  font-weight:bold;
+}

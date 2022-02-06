@@ -1,0 +1,112 @@
+.gridWrapper,
+.formWrapper {
+  display: block;
+  margin: auto;
+}
+
+.bigWrapper {
+  display: block;
+  margin: auto;
+  height: 100%;
+  max-height: 800px;
+}
+
+.gridWrapper {
+  border-top: none;
+  overflow-y: scroll;
+  max-height: 525px;
+}
+
+.formWrapper {
+  overflow: hidden;
+}
+
+.listOfGrids {
+  height: 100%;
+  width: 100%;
+}
+
+table {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  background-color: white;
+  border: none;
+}
+
+td {
+  width: 25%;
+}
+
+.option {
+  font-weight: bold;
+  color: ghostwhite;
+}
+
+.options {
+  float: left;
+}
+
+.options td {
+  border-color: #c0c0c0;
+  border-width: 1px;
+  border-style: solid;
+}
+
+.loadingSpinner {
+  width: fit-content;
+  display: block;
+  margin: auto;
+  margin-top: 25%;
+}
+
+
+.autoPromptTable {
+  border-color: #c0c0c0;
+  border-width: 1px;
+  border-style: solid;
+  border-top: none;
+}
+
+.promptFlex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.lsHoverText:hover {
+  cursor: pointer;
+}
+
+.promptFlexChild {
+  width: 100%;
+}
+
+.lock {
+  color: #c0c0c0;
+  margin: 0 !important;
+}
+
+.quickAddButton {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  position: relative;
+  bottom: 10px;
+  z-index: 999;
+}
+
+.halfButton {
+  width: 47.5%;
+}
+
+.fullButton {
+  width: 90%;
+}
+
+.buttonWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

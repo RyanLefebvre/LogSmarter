@@ -1,0 +1,52 @@
+There is a bug in cordova preferences that prevent us from 
+automating some of the configurations we need in our build.gradle
+file for all of our plugins to work. 
+
+Before running "cordova build android", you need to add the following changes
+code to the platforms/android/build.gradle file in the allProjects.project.project.ext
+json:
+
+    //This replaces project.properties w.r.t. build settings
+    project.ext {
+      defaultBuildToolsVersion="29.0.3" //String
+      defaultMinSdkVersion=19 //Integer - Minimum requirement is Android 4.4
+      defaultTargetSdkVersion=29 //Integer - We ALWAYS target the latest by default
+      defaultCompileSdkVersion=29 //Integer - We ALWAYS compile with the latest by default
+    }
+
+and in buildScripts.dependencies to upgrade the gradle version
+
+    dependencies {
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+
+        classpath 'com.android.tools.build:gradle:3.3.3'
+    }
+
+UPDATE 4/1/21
+
+The cordova local-push-plugin is no longer maintained from master. It works perfectly on
+iOS for our use case but has numerous issues on android. These issues include the notifications
+repeating endlessly for the minute they are scheduled and if a recurring notification is scheduled,
+it will only fire once. To remedy this, we install the following plugin fork.
+
+run: 
+    cordova plugin remove cordova-plugin-local-notifications
+    cordova plugin add https://github.com/timkellypa/cordova-plugin-local-notifications.git
+
+
+UPDATE 4/3/2021
+
+Integrating with google fit is tricky. You need to make sure that you do a couple of things.
+
+1. The app is signed with the release key. This obfuscates logs so that sucks but you got no choice.
+2. Make sure that the account you sign into link google fit with in LS is the same account that you 
+    have data in for the Google Fit app. Otherwise you just aren't going to get anything back.
+3. You need to have a couple of different sdk tools installed. The plugin documentation explains
+    it much better than me: https://github.com/2dvisio/cordova-plugin-googlefit#sdk-requirements-for-compiling-the-plugin
+4. Make sure that you have added a service account to a Google Cloud project. This definitely should 
+    have been done already, but if your getting errors, it would be worth confirming this. The link 
+    to the plugin documentation above explains this in detail.
+5. LASTLY, take the ant.properties file in this directory and the keystore file and move them to the 
+    platforms/android folder. This does something. I'd be lying if I said I knew what it did but simply 
+    running the build script with the prod release key isn't going to enable google fit for some reason.

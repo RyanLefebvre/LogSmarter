@@ -1,0 +1,186 @@
+.maxWidth {
+  display: block;
+  margin: auto;
+  max-width: 800px;
+  margin-top: 10px;
+}
+
+h1 {
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+mat-form-field,
+.fake-mat-form-field {
+  width: 60%;
+  text-align: center;
+}
+
+.wrapper {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  min-width: 290px;
+  font-size: xx-large;
+
+}
+
+mat-label {
+  text-align: center;
+  font-size: xx-large;
+  -ms-word-break: break-all;
+  word-break: break-all;
+  /* Non standard for WebKit */
+  word-break: break-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
+}
+
+mat-card {
+  min-width: 40%;
+  text-align: center;
+}
+
+.inputTitle {
+  text-align: left;
+  float: left;
+  font-weight: bold;
+  font-size: 300%;
+}
+
+.inches {
+  width: 30%
+}
+
+mat-button-toggle-group {
+  width: 90%;
+}
+
+mat-button-toggle {
+  width: 50%;
+}
+
+.deleteCard {
+  border-width: 5px;
+  border-style: solid;
+  font-weight: bold;
+  display: block;
+  margin: auto;
+  color: red;
+  font-weight: bold;
+  border-color: red;
+  margin-top:50px;
+  margin-bottom:50px;
+  width:95%;
+}
+
+.matLabelText {
+  text-align: center;
+  color: black;
+  font-size: small;
+}
+
+.displayTable {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+.userProperty {
+  font-weight: bold;
+  font-size: medium;
+}
+
+.userPropertyValue {
+  font-weight: bold;
+  font-size: medium;
+}
+
+.profileCard {
+  margin-top: 10px;
+}
+
+.preferenceTable {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+.preferenceHeader {
+  font-size: x-large;
+  font-weight: bold;
+}
+
+mat-select,
+mat-option {
+  text-align: center;
+}
+
+form {
+  width: 95%;
+  display: block;
+  margin: auto;
+}
+
+mat-error {
+  font-size: small
+}
+
+::ng-deep .editSelects .mat-select-arrow {
+  border: none !important;
+}
+
+.emailInput {
+  width: 90%;
+  max-width:300px;
+}
+
+.emailChangedSubtext {
+  color: red;
+  font-size: small;
+  font-style: italic;
+  width:80%;
+  display: block;
+  margin:auto;
+}
+
+.usernameDisplay {
+  overflow-x: auto;
+  white-space: nowrap;
+  width:90%;
+}
+
+h1 {
+  display: flex;
+}
+
+.displayTable tr {
+  margin-top: 5px;
+}
+
+log-smarter-spinner-wheel {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+}
+
+/* Align table content  */
+.displayTable tr td{
+  width:50%;
+}
+
+.buttonGroup{
+  margin-top:15px;
+}
+
+.feet {
+  padding-right: 10px !important;
+  width:30%
+}
+
+.forceMaxContent{
+  width:max-content !important;
+}

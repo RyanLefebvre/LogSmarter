@@ -1,0 +1,201 @@
+
+.login-main {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 95%;
+  z-index: 25;
+  height:fit-content;
+  margin-top:10px;
+  padding-bottom:10vh
+}
+
+.mainContent {
+  width: 90%;
+  min-width: 290px !important;
+  max-width: 800px;
+}
+
+.clickToReg a {
+  font-size: large;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+mat-card-title {
+  font-weight: bold;
+}
+
+mat-form-field {
+  width: 90%;
+  font-size: large;
+}
+
+.email,
+.password,
+.rememberMe {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.clickToReg {
+  width: 100%;
+  text-align: center;
+}
+
+.clickToReg {
+  margin-top: 10px;
+}
+
+.rememberMe {
+  width: 90%;
+}
+
+
+a {
+  font-style: italic;
+}
+
+.errorText {
+  color: red;
+  font-weight: bold;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  overflow:hidden;
+}
+
+
+.mat-card-content {
+  margin-bottom: 0 !important;
+}
+
+.logTitle mat-icon {
+  float: left;
+}
+
+.logTitle {
+  width: 100%;
+  font-size: large;
+  text-align: center;
+  font-weight: bold;
+}
+
+.realTitle {
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+/* Stuff for waves */
+
+@keyframes move_wave {
+  0% {
+    transform: translateX(0) translateZ(0) scaleY(1)
+  }
+
+  50% {
+    transform: translateX(-25%) translateZ(0) scaleY(0.55)
+  }
+
+  100% {
+    transform: translateX(-50%) translateZ(0) scaleY(1)
+  }
+}
+
+.waveWrapper {
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  height: 100%;
+  min-height:500px;
+  border: none;
+  background: #C33764;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #1D2671, #C33764);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #1D2671, #C33764);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.mat-card-content{
+  padding-top:5px;
+}
+
+.waveWrapper {
+  position: absolute;
+  width: 100%;
+  overflow: hidden;
+  height: 100%;
+}
+
+.bgTop {
+  z-index: 15;
+  opacity: 0.5;
+}
+
+.bgMiddle {
+  z-index: 10;
+  opacity: 0.75;
+}
+
+.bgBottom {
+  z-index: 5;
+}
+
+.wave {
+  position: absolute;
+  left: 0;
+  width: 200%;
+  height: 100%;
+  background-repeat: repeat no-repeat;
+  background-position: 0 bottom;
+  transform-origin: center bottom;
+}
+
+.waveTop {
+  background-size: 50% 100px;
+}
+
+.waveAnimation .waveTop {
+  animation: move-wave 3s;
+  -webkit-animation: move-wave 3s;
+  -webkit-animation-delay: 1s;
+  animation-delay: 1s;
+}
+
+.waveMiddle {
+  background-size: 50% 120px;
+}
+
+.waveAnimation .waveMiddle {
+  animation: move_wave 10s linear infinite;
+}
+
+.waveBottom {
+  background-size: 50% 100px;
+}
+
+.waveAnimation .waveBottom {
+  animation: move_wave 15s linear infinite;
+}
+
+.fillHeight{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:100vh;
+}
+
+form{
+  background: #C33764;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #1D2671, #C33764);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #1D2671, #C33764);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+

@@ -1,0 +1,72 @@
+<mat-card class='mainContent'>
+  <mat-card-header class='noMarginHeaderText'>
+    <mat-card-title>
+      <h1>
+        <mat-icon class='lsThemeText'>widgets</mat-icon>Resources
+      </h1>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-divider></mat-divider>
+  <div *ngIf='!showResourceList'>
+    <div class='subResourceHeader'>
+      <button mat-icon-button (click)="backToResources()" class='lsHoverText'>
+        <mat-icon>keyboard_return</mat-icon>
+      </button>
+      <div class='resourceTitleText'>
+        <div>{{ selectedResourceTitle }}</div>
+      </div>
+    </div>
+    <mat-divider></mat-divider>
+    <div class='subresourceContent'>
+      <app-what-is-tdee *ngIf="this.selectedResourceTitle == this.WHAT_IS_TDEE"></app-what-is-tdee>
+      <app-activity-level-guide *ngIf="this.selectedResourceTitle == this.ACTIVITY_LEVEL_GUIDE">
+      </app-activity-level-guide>
+      <app-periodization *ngIf="this.selectedResourceTitle == this.PERIODIZATION"></app-periodization>
+      <app-bulking *ngIf="this.selectedResourceTitle == this.BULKING"></app-bulking>
+      <app-cutting *ngIf="this.selectedResourceTitle == this.CUTTING"></app-cutting>
+      <app-bulk-or-cut *ngIf="this.selectedResourceTitle == this.BULK_OR_CUT"></app-bulk-or-cut>
+      <div class="buttonGroup">
+        <button class="lsThemeButton buttonGroupButton" mat-raised-button (click)="backToResources()">
+          <div class='buttonFlexManager' fxLayout="row">
+            <div class='buttonIconWrapper'>
+              <mat-icon>keyboard_return</mat-icon>
+            </div>
+            <div class='buttonTextWrapper'>
+              &nbsp; BACK TO RESOURCES
+            </div>
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div *ngFor=" let category of categories">
+    <div *ngIf=' !showSpinner && showResourceList'>
+      <mat-list class='resourceHeaderList' dense>
+        <mat-list-item class='resourceHeaderListItem'>
+          <h3>
+            <mat-icon class=' lsThemeText'>folder</mat-icon>
+            <span class="categoryTitle"> {{ category.title }} </span>
+          </h3>
+        </mat-list-item>
+        <div class='subresourceListFlexManager'>
+          <div class='resourceSubList'>
+            <li class='list-item' (click)='loadResource( resource)' *ngFor="let resource of category.resources"
+              id="{{ this.getResourceTitle(resource) }}">
+              <mat-card class="sub-resource-card openAnalysis lsHoverText">
+                <div class="titleHolder">
+                  <mat-card-title> {{ this.getResourceTitle(resource) }} </mat-card-title>
+                </div>
+                <mat-divider></mat-divider>
+                <div class="sub-resource-image-wrapper">
+                  <img class="resourceImage" src="{{getResourceImageURL(resource)}}"
+                    alt="{{this.getResourceTitle(resource)}}" *ngIf="resourceHasBeenLoaded(resource)">
+                  <log-smarter-spinner-wheel *ngIf="!resourceHasBeenLoaded(resource)"></log-smarter-spinner-wheel>
+                </div>
+              </mat-card>
+            </li>
+          </div>
+        </div>
+      </mat-list>
+    </div>
+  </div>
+</mat-card>

@@ -1,0 +1,63 @@
+<form class='nutrLogForm' [formGroup]="nutrLogForm">
+  <div class='header'>
+    <div class='logTitle' *ngIf="inEditMode()">
+      <mat-icon class='lsThemeText'>edit</mat-icon>
+      <div class='realTitle'>EDIT LOG&nbsp;&nbsp;&nbsp;</div>
+    </div>
+    <div class='logTitle' *ngIf="inCreateMode()">
+      <mat-icon class='lsThemeText'>add_circle</mat-icon>
+      <div class='realTitle'>CREATE LOG&nbsp;&nbsp;&nbsp;</div>
+    </div>
+  </div>
+  <mat-divider></mat-divider>
+  <label *ngIf="!showSpinner" class="titleInputLabelWithoutTemplates">
+    <div class="inputTitle"> Title:</div>
+    <!-- <br> -->
+    <mat-form-field>
+      <input matInput type="text" [formControlName]="this.FORM_CONTROL_LOG_TITLE" maxlength="256">
+      <mat-error>
+        this field is required and cannot be blank.
+      </mat-error>
+    </mat-form-field>
+  </label>
+  <label *ngIf="this.inCreateMode() &&!showSpinner" class="titleInputLabelWithoutTemplates">
+    <div class="inputTitle"> Goal: </div>
+    <mat-form-field>
+      <mat-select [formControlName]="this.FORM_CONTROL_LOG_GOAL" [disabled]="this.hasLogToEdit"
+        class="offsetSelectToCenter" [ngClass]=" { 'disabledSelect lsThemeText' : this.hasLogToEdit}">
+        <mat-option *ngFor="let goal of nutritionConstants.getLogGoalFormControls()" [value]="goal.value">
+          {{goal.displayName}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </label>
+  <div class="buttonGroup" *ngIf="!showSpinner">
+    <button type="button" [disabled]="!nutrLogForm.valid" (click)=" assignInputs()" class="confirm" mat-raised-button
+      class='buttonGroupButton'
+      [ngClass]=" { 'lsGradientBackgroundColor lsGradientBackgroundColorHover' : nutrLogForm.valid  , 'disabledButton' : !nutrLogForm.valid }">
+      <div class='buttonFlexManager' fxLayout="row">
+        <div class='buttonIconWrapper'>
+          <mat-icon>done_outline</mat-icon>
+        </div>
+        <div class='buttonTextWrapper'>
+          &nbsp; CONFIRM
+        </div>
+      </div>
+    </button>
+    <button type="button" [disabled]="showSpinner" class="buttonGroupButton blueButton" mat-raised-button
+      (click)="closeDialog()">
+      <div class='buttonFlexManager' fxLayout="row">
+        <div class='buttonIconWrapper'>
+          <mat-icon>cancel_presentation</mat-icon>
+        </div>
+        <div class='buttonTextWrapper'>
+          &nbsp; CLOSE
+        </div>
+      </div>
+    </button>
+  </div>
+</form>
+<div class="spinnerWrapper">
+  <log-smarter-spinner-wheel *ngIf="showSpinner" class="spinnerWrapper" [spinnerMessage]="spinnerMessage">
+  </log-smarter-spinner-wheel>
+</div>

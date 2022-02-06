@@ -1,0 +1,75 @@
+<div class='wrapper'>
+  <div class='header'>
+    <div class='logTitle'>
+      <mat-icon class='lsThemeText'>dashboard</mat-icon>
+      <div class='realTitle'>MAIN LOG</div>
+    </div>
+  </div>
+  <mat-divider></mat-divider>
+  <div class='flexManager' *ngIf="!showSpinner">
+    <div class='maxLogError' *ngIf='showMaxErrorMessage()'>
+      *Maximum number of logs {{this.getMaxNumLogsForUser()}}
+    </div>
+    <div *ngIf="showUseExisting" class="listHolder">
+      <mat-list class="existingList">
+        <mat-list-item *ngFor='let log of existingLogs' (click)="closeDialog(log)">
+          <mat-divider></mat-divider>
+          <div class=" lsGradientBackgroundColor lsGradientBackgroundColorHover existingLog">{{log.title}}</div>
+          <mat-divider></mat-divider>
+        </mat-list-item>
+      </mat-list>
+      <br><br>
+    </div>
+    <div class="buttonGroup" *ngIf='!showSpinner'>
+      <button class="buttonGroupButton" *ngIf="!showUseExisting"
+        [ngClass]=" { 'lsGradientBackgroundColor lsGradientBackgroundColorHover ' : !(this.reachedOrExceededMaxLogs()), 'disabledButton' : this.reachedOrExceededMaxLogs() }"
+        [disabled]='this.reachedOrExceededMaxLogs()' mat-raised-button (click)="closeDialog(this.CREATE_NEW)">
+        <div class='buttonFlexManager' fxLayout="row">
+          <div class='buttonIconWrapper'>
+            <mat-icon>add_circle</mat-icon>
+          </div>
+          <div class='buttonTextWrapper'>
+            CREATE NEW
+          </div>
+        </div>
+      </button>
+      <button class="buttonGroupButton" *ngIf="!showUseExisting"
+        [ngClass]=" { 'lsThemeButton' : enableUseExisting() , 'disabledButton' : !(enableUseExisting()) }"
+        [disabled]='!(enableUseExisting())' mat-raised-button (click)="toggleUseExisting()">
+        <div class='buttonFlexManager' fxLayout="row">
+          <div class='buttonIconWrapper'>
+            <mat-icon>swap_horiz</mat-icon>
+          </div>
+          <div class='buttonTextWrapper'>
+            USE EXISTING
+          </div>
+        </div>
+      </button>
+      <button class="blueButton buttonGroupButton" *ngIf="!showUseExisting" mat-raised-button
+        (click)="closeDialog(this.JUST_CLOSE)">
+        <div class='buttonFlexManager' fxLayout="row">
+          <div class='buttonIconWrapper'>
+            <mat-icon>cancel_presentation</mat-icon>
+          </div>
+          <div class='buttonTextWrapper'>
+            CLOSE
+          </div>
+        </div>
+      </button>
+      <button class="buttonGroupButton greyButton" *ngIf="showUseExisting"
+        [ngClass]=" { 'lsThemeButton' : enableUseExisting() , 'disabledButton' : !(enableUseExisting()) }"
+        [disabled]='!(enableUseExisting())' mat-raised-button (click)="toggleUseExisting()">
+        <div class='buttonFlexManager' fxLayout="row">
+          <div class='buttonIconWrapper'>
+            <mat-icon>keyboard_return</mat-icon>
+          </div>
+          <div class='buttonTextWrapper'>
+            BACK
+          </div>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+<log-smarter-spinner-wheel class="spinnerWrapper" *ngIf="showSpinner" [spinnerMessage]="this.spinnerMessage">
+</log-smarter-spinner-wheel>

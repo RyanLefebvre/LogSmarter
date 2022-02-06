@@ -1,0 +1,218 @@
+.mainContent {
+  text-align: center;
+  font-size: large;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  margin-bottom: 25px;
+  max-width: 1000px;
+}
+
+.wrapper {
+  padding-bottom: 50px;
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.algDescription {
+  text-align: left;
+  margin-top: 10px;
+  font-size: medium;
+}
+
+.algEmail:hover {
+  cursor: pointer;
+}
+
+.emailWrapper {
+  margin-top: 10px;
+}
+
+.valueProp {
+  margin-top: 10px;
+  min-width: 300px;
+  padding-left: 5px;
+  padding-right: 5px;
+  width: 30%;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  flex-grow: 1;
+  margin-bottom: 20px;
+}
+
+.valPropCard {
+  height: 100%;
+  padding: 5px;
+  border-color: #c0c0c0;
+}
+
+.icon {
+  border-style: solid;
+  border-width: 2px;
+  width: 100%;
+  min-height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("/assets/header.png");
+  background-color: grey;
+  border: none;
+}
+
+
+.description {
+  font-size: medium;
+}
+
+.iconImage {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 120px;
+}
+
+.valuePropWrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.header {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sendToFront {
+  position: relative;
+  z-index: 25;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 100px;
+}
+
+.whiteText {
+  color: white;
+  width: 100%;
+  text-align: center;
+}
+
+.header {
+  margin-top: 25px;
+}
+
+.navButton {
+  height: 100%;
+}
+
+/* Stuff for waves */
+
+@keyframes move_wave {
+  0% {
+    transform: translateX(0) translateZ(0) scaleY(1)
+  }
+
+  50% {
+    transform: translateX(-25%) translateZ(0) scaleY(0.55)
+  }
+
+  100% {
+    transform: translateX(-50%) translateZ(0) scaleY(1)
+  }
+}
+
+.waveWrapper {
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  height: 100%;
+  min-height: 500px;
+  border: none;
+  background: #C33764;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #1D2671, #C33764);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #1D2671, #C33764);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.mat-card-content {
+  padding-top: 5px;
+}
+
+.waveWrapperInner {
+  position: absolute;
+  width: 100%;
+  overflow: hidden;
+  height: 100%;
+}
+
+.bgTop {
+  z-index: 15;
+  opacity: 0.5;
+}
+
+.bgMiddle {
+  z-index: 10;
+  opacity: 0.75;
+}
+
+.bgBottom {
+  z-index: 5;
+}
+
+.wave {
+  position: absolute;
+  left: 0;
+  width: 200%;
+  height: 100%;
+  background-repeat: repeat no-repeat;
+  background-position: 0 bottom;
+  transform-origin: center bottom;
+}
+
+.waveTop {
+  background-size: 50% 100px;
+}
+
+.waveAnimation .waveTop {
+  animation: move-wave 3s;
+  -webkit-animation: move-wave 3s;
+  -webkit-animation-delay: 1s;
+  animation-delay: 1s;
+}
+
+.waveMiddle {
+  background-size: 50% 120px;
+}
+
+.waveAnimation .waveMiddle {
+  animation: move_wave 10s linear infinite;
+}
+
+.waveBottom {
+  background-size: 50% 100px;
+}
+
+.waveAnimation .waveBottom {
+  animation: move_wave 15s linear infinite;
+}
+
+.goToDashButton {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+}

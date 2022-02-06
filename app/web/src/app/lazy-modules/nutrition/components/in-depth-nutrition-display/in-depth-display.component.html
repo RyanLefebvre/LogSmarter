@@ -1,0 +1,179 @@
+<div class="bigWrapper">
+  <log-smarter-spinner-wheel *ngIf='showStatsSpinner' [noMessage]=true></log-smarter-spinner-wheel>
+  <div class="titleControlsOverview" *ngIf='!showStatsSpinner '>
+    <h4>
+      <div class='headerFlexManager'>
+        <button *ngIf='showGraphAndVarsButtons()' class="settings lsHoverText" mat-button [matMenuTriggerFor]="menu">
+          <mat-icon>view_carousel
+          </mat-icon>
+        </button>
+        <button class="settings lsHoverText" (click)='settingsClick()' mat-button>
+          <mat-icon>settings</mat-icon>
+        </button>
+        <button *ngIf="this.environmentService.isWeb" class="settings lsHoverText"
+          (click)='this.exporter.exportNutrLogToCSV(this.logBeingObserved)' mat-button>
+          <mat-icon>file_download</mat-icon>
+        </button>
+        <div class="logTitle">
+          {{logBeingObserved.title}}
+        </div>
+      </div>
+      <mat-menu #menu="matMenu" width="100%">
+        <button mat-menu-item class="matMenuButton" *ngIf='showGraphAndVarsButtons()'>
+          <div *ngIf='!showGraph()' (click)="userShowGraph = true">
+            <mat-icon>insert_chart</mat-icon> SHOW GRAPH
+          </div>
+          <div *ngIf='showGraph()' (click)="userShowGraph = false">
+            <mat-icon>insert_chart</mat-icon> HIDE GRAPH
+          </div>
+        </button>
+        <button mat-menu-item class="matMenuButton" *ngIf='showGraphAndVarsButtons()'>
+          <div *ngIf='!showVars()' (click)="userShowVars = true">
+            <mat-icon>bubble_chart</mat-icon> SHOW VARIABLES
+          </div>
+          <div *ngIf='showVars()' (click)="userShowVars = false">
+            <mat-icon>bubble_chart</mat-icon> HIDE VARIABLES
+          </div>
+        </button>
+      </mat-menu>
+    </h4>
+
+    <div class="openAnalysis" (click)="openAnalysis()">
+      <table class="testTable">
+        <tr>
+          <th class="var lsThemeText ">
+            <div class="inDepthTableContent  ">START <br>WEIGHT</div>
+          </th>
+          <td class="smallFont">{{ payload?.startWeight | WeightPipe }} </td>
+          <th class="var lsThemeText">
+            <div class="inDepthTableContent  ">CURRENT <br>WEIGHT</div>
+          </th>
+          <td class="smallFont">{{ payload?.currentWeight | WeightPipe}}</td>
+        </tr>
+        <tr>
+          <th class="var lsThemeText ">
+            <div class="inDepthTableContent">FIRST <br>ENTRY</div>
+          </th>
+          <td class="smallFont">
+            <span *ngIf="payload?.startDate ">{{ payload?.startDate | date: 'MM/dd/yy'}}</span>
+            <span *ngIf="!(payload?.startDate )">-</span>
+          </td>
+          <th class="var lsThemeText">
+            <div class="inDepthTableContent">LATEST <br>ENTRY</div>
+          </th>
+          <td class="smallFont">
+            <span *ngIf="payload?.latestDate">{{ payload?.latestDate | date: 'MM/dd/yy'}}</span>
+            <span *ngIf="!(payload?.latestDate)">-</span>
+          </td>
+        </tr>
+        <tr>
+          <th class="lsThemeText">
+            <div class="inDepthTableContent">TDEE</div>
+          </th>
+          <td class="smallFont">{{payload.estimatedTDEE | CaloriePipe}} </td>
+          <th class="var lsThemeText">
+            <div class="inDepthTableContent">LENGTH</div>
+          </th>
+          <td class="smallFont">
+            <span *ngIf="(logBeingObserved.dayEntries.length) > 0">{{logBeingObserved.dayEntries.length}} Entries</span>
+            <span *ngIf="(logBeingObserved.dayEntries.length) <= 0">-</span>
+          </td>
+        </tr>
+        <tr>
+          <th class="lsThemeText">
+            <div class="inDepthTableContent   ">GOAL</div>
+          </th>
+          <td colspan="3">{{constants.getDisplayForGoal( logBeingObserved.goal )}}</td>
+        </tr>
+        <tr>
+          <th class="lsThemeText">
+            <div class="inDepthTableContent   ">RATE GAIN/LOSS</div>
+          </th>
+          <td colspan="3" *ngIf="showInDepthStats()">
+            <div>{{checkForInsufficientData(payload?.gainLossRate)}}</div>
+          </td>
+          <td rowspan="2" colspan="3" *ngIf="!showInDepthStats()" class="lsHoverText unlock">
+            <mat-icon class="lock">lock</mat-icon>
+            <div class="lockMessage">Unlock With Premium</div>
+          </td>
+        </tr>
+        <tr>
+          <th class="lsThemeText">
+            <div class="inDepthTableContent ">GOAL INTAKE</div>
+          </th>
+          <td colspan="3" *ngIf="showInDepthStats()">
+            {{checkForInsufficientData(payload?.goalIntakeRange)}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class='graphContainer' *ngIf='showGraph()'>
+    <app-graph-widget [displayLogObservable]="displayLogObservable"></app-graph-widget>
+  </div>
+
+  <div class="variables" *ngIf=' showVars() '>
+    <log-smarter-spinner-wheel *ngIf='showVariablesSpinner' [noMessage]=true></log-smarter-spinner-wheel>
+    <table *ngIf="!showVariablesSpinner">
+      <col width="25%" />
+      <col width="25%" />
+      <col width="25%" />
+      <col width="25%" />
+      <tr>
+        <th class="var lsBackgroundColor">VAR</th>
+        <th class="var lsBackgroundColor">MIN</th>
+        <th class="var lsBackgroundColor">MAX</th>
+        <th class="var lsBackgroundColor">AVG</th>
+      </tr>
+      <tr>
+        <td style="font-weight: bold">
+          <div class="varCellContent  lsThemeText ">
+            WEIGHT
+          </div>
+        </td>
+        <td *ngIf=" showInDepthStats()">
+          <div class="varCellContent">
+            {{ payload?.minWeight | WeightPipe}}
+          </div>
+        </td>
+        <td *ngIf=" showInDepthStats()">
+          <div class="varCellContent">
+            {{ payload?.maxWeight | WeightPipe}}
+          </div>
+        </td>
+        <td *ngIf=" showInDepthStats()">
+          <div class="varCellContent">
+            {{ payload?.avgWeight | WeightPipe}}
+          </div>
+        </td>
+        <td rowspan="2" colspan="3" *ngIf="! showInDepthStats()" class="lsHoverText unlock"
+          (click)="dialog.openAppropritateAccountDialog()">
+          <mat-icon class="lock">lock</mat-icon>
+          <div class="lockMessage">Unlock With Premium</div>
+        </td>
+      </tr>
+      <tr>
+        <td style="font-weight: bold">
+          <div class="varCellContent  lsThemeText ">
+            KCAL
+          </div>
+        </td>
+        <td *ngIf=" showInDepthStats()">
+          <div class="varCellContent">
+            {{payload?.minCalories | CaloriePipe}}
+          </div>
+        </td>
+        <td *ngIf=" showInDepthStats()">
+          <div class="varCellContent">
+            {{ payload?.maxCalories | CaloriePipe }}
+          </div>
+        </td>
+        <td *ngIf=" showInDepthStats()">
+          <div class="varCellContent">
+            {{ payload?.avgCalories | CaloriePipe }}
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,59 @@
+label {
+  text-align: center;
+}
+
+.inputTitle {
+  font-weight: bold;
+  font-size: large;
+}
+
+mat-form-field {
+  text-align: center;
+  width: 90%;
+}
+
+.nutrLogForm {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.buttonGroup {
+  margin: 0;
+  flex-basis: 80px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.logTitle {
+  width: 100%;
+  font-size: large;
+  text-align: center;
+  font-weight: bold;
+}
+
+.logTitle mat-icon {
+  float: left;
+}
+
+.realTitle {
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.wrapper {
+  text-align: center;
+}
+
+.spinnerMessage{
+  width:100%;
+  text-align: center;
+  font-style:italic;
+  font-weight:bold;
+}
+
+.spinnerWrapper{
+  margin-top:20px;
+}

@@ -1,0 +1,13 @@
+mat-spinner{
+    margin-left:auto;
+    margin-right:auto;
+    display:block;
+}
+
+.message{
+    text-align:center;
+    font-weight: bold;
+    font-style: italic;
+    width:100%;
+    font-size: small;
+}

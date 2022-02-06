@@ -1,0 +1,36 @@
+<div class="cardWrapper">
+    <mat-card class="card">
+        <div class="header-container">
+            <a [href]="this.getSocialLink(this.type)" target="_blank">
+                <i [class]="this.getFontAwesomeIcon(this.type)"></i>
+                <span class="lsThemeText">&nbsp;{{ this.title }}</span>
+            </a>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="socialCardContent">
+            <log-smarter-spinner-wheel *ngIf="!this.isLoaded()" class="spinner"></log-smarter-spinner-wheel>
+            <div class="parent" *ngIf="this.isLoaded()">
+                <!-- YouTube -->
+                <div class="frame-parent" *ngIf="this.isYouTube()">
+                    <iframe class="youtube-frame" [src]="this.youtubeURL | safe" frameborder="0" sandbox="allow-scripts allow-same-origin"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen security=”restricted”>
+                    </iframe>
+                </div>
+                <!-- LinkedIn -->
+                <div class="frame-parent overflowAuto" *ngIf="this.isLinkedIn()">
+                    <iframe class="linkedin-frame" [src]="this.data | safe" frameborder="0" allowfullscreen="" sandbox="allow-scripts allow-same-origin"
+                        title="Embedded post">
+                    </iframe>
+                </div>
+                <!-- Instagram -->
+                <div class="instagram-parent" *ngIf="this.isInstagram()">
+                    <div class="instagram-image-container">
+                        <a [href]="this.data" target="_blank">
+                            <img [src]="this.image">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </mat-card>
+</div>

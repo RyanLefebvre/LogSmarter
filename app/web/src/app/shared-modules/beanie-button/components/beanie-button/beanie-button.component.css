@@ -1,0 +1,12 @@
+log-smarter-spinner-wheel{
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.spinnerMessage{
+    font-style:italic;
+    font-weight: bold;
+    width:100%;
+    text-align: center;
+    font-size: small;
+}

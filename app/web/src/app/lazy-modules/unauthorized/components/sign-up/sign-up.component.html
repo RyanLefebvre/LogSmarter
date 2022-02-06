@@ -1,0 +1,227 @@
+<form [formGroup]="registerForm" (ngSubmit)="handleSubmit()">
+  <div fxLayout="row" fxLayoutAlign="center center" class="register-main">
+    <mat-card class='mainContent'>
+      <mat-card-header class='noMarginHeaderText'>
+        <mat-card-title>
+          <h1>
+            <mat-icon class='lsThemeText'>touch_app</mat-icon>Register
+          </h1>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-divider></mat-divider>
+      <div class="demoMessage">
+        The only information required to register is your Username, Email and Password.
+        Your demographic information is optional, but we recommend filling all of this information out now because it is used by our machine learning algorithm to predict your calorie requirements.
+      </div>
+      <div class="demoMessage boldDemoMessage lsThemeText">
+        We do not share this data and only use it to optimize your nutrition.
+      </div>
+      <mat-card-content fxLayout="column">
+        <!---------------------------- Username and email --------------------------->
+        <div class="saveSpace">
+          <div class="formFieldWrapper">
+            <mat-form-field>
+              <div class="lsThemeText formFieldHeader">Username</div>
+              <input type="text" autocomplete="new-username" [formControlName]="FORM_CONTROL_USERNAME" matInput
+                maxlength="25">
+              <mat-icon style="float:right;">perm_identity</mat-icon>
+              <mat-error>
+                * username required less than 25 characters
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="formFieldWrapper">
+            <mat-form-field>
+              <div class="lsThemeText formFieldHeader">Email</div>
+              <input type="text" [formControlName]="FORM_CONTROL_EMAIL" matInput maxlength="256">
+              <mat-icon style="float:right;">email</mat-icon>
+              <mat-error>
+                * valid email required
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <!---------------------------- Password initial and repeat --------------------------->
+        <div class="saveSpace">
+          <div class="formFieldWrapper">
+            <mat-form-field>
+              <div class="lsThemeText formFieldHeader">Password</div>
+              <input autocomplete="new-password" [formControlName]="FORM_CONTROL_PASSWORD" type="password" matInput
+                minlength="7" maxlength="256">
+              <mat-icon style="float:right;">security</mat-icon>
+              <mat-error>
+                * password Required - no whitespace - 7 character minimum
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="formFieldWrapper">
+            <mat-form-field>
+              <div class="lsThemeText formFieldHeader">Repeat Password</div>
+              <input autocomplete="new-password" [formControlName]="FORM_CONTROL_PASSWORD_CONFIRMATION" type="password"
+                matInput minlength="7" maxlength="256">
+              <mat-icon style="float:right;">security</mat-icon>
+              <mat-error>
+                * password Required - no whitespace - 7 character minimum
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <!---------------------------- Number system and activity level --------------------------->
+        <div class="saveSpace">
+          <div class="formFieldWrapper">
+            <mat-form-field>
+              <div class="lsThemeText formFieldHeader forceAlignSelectHeadersVertically">Number System</div>
+              <mat-select [formControlName]="FORM_CONTROL_NUMBER_SYSTEM">
+                <mat-option *ngFor="let numSystem of prefs.getNumberSystemFormControls()" [value]="numSystem.value">
+                  {{numSystem.displayName}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="formFieldWrapper">
+            <mat-form-field class='hideUnderLineWhenDisabled'>
+              <div class="lsThemeText formFieldHeader">Activity Level</div>
+              <mat-select [formControlName]="FORM_CONTROL_ACTIVITY_LEVEL"
+                class="lsThemeText forceAlignSelectHeadersVertically" style="text-align:center">
+                <mat-option *ngFor="let activityLevel of prof.getActivtiyLevelFormControls()"
+                  [value]="activityLevel.value">
+                  {{activityLevel.displayName}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+        <!---------------------------- Height & Weight --------------------------->
+        <div class="saveSpace">
+          <div class="formFieldWrapper">
+            <div class="lsThemeText formFieldHeader imperialHeader" *ngIf="this.isImperial()">
+              Height
+            </div>
+            <mat-form-field class="feet" *ngIf="this.isImperial()">
+              <input type="number" [formControlName]="FORM_CONTROL_HEIGHT_FEET" matInput inputMode="numeric">
+              <mat-placeholder>Feet</mat-placeholder>
+              <mat-icon style="float:right;"></mat-icon>
+              <mat-error>
+                * 9 or less
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field class="inches" *ngIf="this.isImperial()">
+              <input type="number" [formControlName]="FORM_CONTROL_HEIGHT_INCHES" matInput inputMode="numeric">
+              <mat-placeholder>Inches</mat-placeholder>
+              <mat-icon style="float:right;"></mat-icon>
+              <mat-error>
+                * 11 or less
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field *ngIf="!this.isImperial()">
+              <div class="lsThemeText formFieldHeader">
+                Height(cm)
+              </div>
+              <input type="number" [formControlName]="FORM_CONTROL_HEIGHT_CM" matInput inputMode="numeric">
+              <mat-icon style="float:right;"></mat-icon>
+              <mat-error>
+                * invalid height
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="formFieldWrapper">
+            <mat-form-field *ngIf='this.isImperial()'>
+              <div class="lsThemeText formFieldHeader">Weight(lbs)</div>
+              <input type="number" [formControlName]="FORM_CONTROL_WEIGHT_LB" matInput inputMode="decimal">
+              <mat-icon style="float:right;"></mat-icon>
+              <mat-error>
+                * invalid weight
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field *ngIf="!this.isImperial()">
+              <div class="lsThemeText formFieldHeader">Weight(kg)</div>
+              <input type="number" [formControlName]="FORM_CONTROL_WEIGHT_KG" matInput inputMode="decimal">
+              <mat-icon style="float:right;"></mat-icon>
+              <mat-error>
+                * invalid weight
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <!---------------------------- Age & Gender --------------------------->
+        <div class="saveSpace">
+          <div class="formFieldWrapper">
+            <mat-form-field>
+              <div class="lsThemeText formFieldHeader">Age</div>
+              <input type="number" [formControlName]="FORM_CONTROL_AGE" matInput inputMode="numeric">
+              <mat-icon style="float:right;"></mat-icon>
+              <mat-error>
+                * invalid age
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="formFieldWrapper">
+            <mat-form-field class='hideUnderLineWhenDisabled'>
+              <div class="lsThemeText formFieldHeader forceAlignSelectHeadersVertically">Gender</div>
+              <mat-select [formControlName]="FORM_CONTROL_GENDER" class="lsThemeText" style="text-align:center">
+                <mat-option *ngFor="let gender of prof.getGenderFormControls()" [value]="gender.value">
+                  {{gender.displayName}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="saveSpace">
+          <div class="formFieldWrapper" *ngIf="!(this.environmentService.isMobile)">
+            <mat-form-field>
+              <div class="lsThemeText formFieldHeader">Promo Code</div>
+              <input type="text" maxlength="25" matInput [formControlName]="FORM_CONTROL_PROMO">
+            </mat-form-field>
+          </div>
+          <div class="formFieldWrapper">
+            <mat-form-field>
+              <div class="lsThemeText formFieldHeader">How Did You Hear About Us?</div>
+              <input type="text" maxlength="140" matInput [formControlName]="FORM_CONTROL_HEARD_ABOUT">
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="termsContentWrapper">
+          <mat-checkbox [formControlName]="FORM_CONTROL_AGREE_TO_TERMS" class="terms" *ngIf='showSpinner == false '>
+            I agree
+            to terms of service
+          </mat-checkbox>
+          <div class="viewTerms lsHoverText" (click)="openTerms()" *ngIf='showSpinner == false '>
+            &nbsp;&nbsp;&nbsp;&nbsp;View Terms
+          </div>
+        </div>
+      </mat-card-content>
+      <div class='buttonGroup'>
+        <button *ngIf="showSpinner == false" type="submit" mat-raised-button
+          [disabled]="!registerForm.valid || !userAgreesToTerms()" class='buttonGroupButton'>
+          <div class='buttonFlexManager' fxLayout="row">
+            <div class='buttonIconWrapper'>
+              <mat-icon>
+                touch_app
+              </mat-icon>
+            </div>
+            <div class='buttonTextWrapper'>
+              &nbsp; REGISTER
+            </div>
+          </div>
+        </button>
+      </div>
+      <div class="errorMessage" *ngIf="showSpinner == false && hasErrorMessage()">{{errorMessage}}</div>
+    </mat-card>
+  </div>
+</form>
+
+<!-- Circles -->
+<div class="area">
+  <ul class="circles">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+</div>

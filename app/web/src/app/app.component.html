@@ -1,0 +1,21 @@
+<div class="logSmarterWrapper">
+  <div class="openSourceMessageWrapper">
+    <p class="openSourceMessage">
+      The LogSmarter app is now open source, but we have not released our machine learning model.
+      If you're interested in buying it, we may be interested in selling it. Contact <a href="mailto:someone@yoursite.com"> Ryan.lefebvre04@gmail.com</a> for more information
+    </p>
+  </div>
+  <div class="appSpinnerWrapper" *ngIf='state.userIsLoading()'>
+    <log-smarter-spinner-wheel [noMessage]="true">
+    </log-smarter-spinner-wheel>
+  </div>
+  <app-nav-bar *ngIf='!state.userIsLoading()'>
+    <div class='pageContent'>
+      <router-outlet (activate)="onActivate()">
+      </router-outlet>
+    </div>
+  </app-nav-bar>
+  <footer *ngIf='!state.userIsLoading()'>
+    <app-footer></app-footer>
+  </footer>
+</div>

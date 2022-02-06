@@ -1,0 +1,27 @@
+  .logTitle {
+    width: 100%;
+    font-size: large;
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  .logTitle mat-icon {
+    float: left;
+  }
+  
+  .realTitle {
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  .spinnerWrapper{
+    max-width:300px;
+    margin-left: auto;
+    margin-right:auto;
+    display:block;
+  }
+  
+
+
+  

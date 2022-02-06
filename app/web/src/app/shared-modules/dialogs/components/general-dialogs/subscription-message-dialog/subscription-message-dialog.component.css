@@ -1,0 +1,24 @@
+.logTitle {
+  width: 100%;
+  font-size: large;
+  text-align: center;
+  font-weight: bold;
+}
+
+.logTitle mat-icon {
+  float: left;
+}
+
+.realTitle {
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+a{
+  color:#c0c0c0 !important;
+}
+
+.center{
+  text-align:center;
+}

@@ -1,0 +1,75 @@
+{
+  "name": "com.logsmarter.app",
+  "displayName": "LogSmarterMobileApp",
+  "version": "1.0.0",
+  "description": "A sample Apache Cordova application that responds to the deviceready event.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "iosIcons": "cordova-res ios --type icon",
+    "buildReleaseApk": "cordova build android --release -- --keystore=\"./android-release.keystore\" --alias=\"release\" --storePassword=\"swellowNormalFlying\" --password=\"swellowNormalFlying\"",
+    "runReleaseApk": "cordova run android --release -- --keystore=\"./android-release.keystore\" --alias=\"release\" --storePassword=\"swellowNormalFlying\" --password=\"swellowNormalFlying\""
+  },
+  "keywords": [
+    "ecosystem:cordova"
+  ],
+  "author": "Apache Cordova Team",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "cordova": "^10.0.0",
+    "cordova-android": "^8.1.0",
+    "cordova-browser": "^6.0.0",
+    "cordova-plugin-androidx": "^3.0.0",
+    "cordova-plugin-androidx-adapter": "^1.1.3",
+    "cordova-plugin-badge": "^0.8.8",
+    "cordova-plugin-device": "^2.0.3",
+    "cordova-plugin-health": "^2.0.1",
+    "cordova-plugin-local-notification": "git+https://github.com/timkellypa/cordova-plugin-local-notifications.git",
+    "cordova-plugin-purchase": "^10.5.3",
+    "cordova-res": "^0.15.2",
+    "jetifier": "^1.6.6"
+  },
+  "devDependencies": {
+    "@ahovakimyan/cordova-plugin-wkwebviewxhrfix": "^1.0.0",
+    "cc.fovea.cordova.purchase": "^10.1.1",
+    "cordova-ios": "^6.1.1",
+    "cordova-plugin-inappbrowser": "^4.1.0",
+    "cordova-plugin-keyboard": "^1.2.0",
+    "cordova-plugin-network-information": "^2.0.2",
+    "cordova-plugin-screen-orientation": "^3.0.2",
+    "cordova-plugin-splashscreen": "^6.0.0",
+    "cordova-plugin-statusbar": "^2.4.3",
+    "cordova-plugin-whitelist": "^1.3.4",
+    "es6-promise-plugin": "^4.2.2"
+  },
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-statusbar": {},
+      "cordova-plugin-screen-orientation": {},
+      "cordova-plugin-splashscreen": {},
+      "cordova-plugin-network-information": {},
+      "cordova-plugin-keyboard": {},
+      "cordova-plugin-inappbrowser": {},
+      "cordova-plugin-androidx": {},
+      "cordova-plugin-androidx-adapter": {},
+      "cordova-plugin-purchase": {
+        "BILLING_KEY": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAySSGPaXlnq2gv2UAaEXQBXyt58Q/M8Z8WzaxvSPggEa9niXvHDtUzO99/xIPbmoqztIyS4E0ldjxkIzEKG2cWsLbnVSi0kGj4VeGKDKdtO00NouVwfndHlQLw8x0NtX9awebN+cJIRRBLF9H2C2mCVNAmOrvToaDj8MTkS/PbBiJQ4IuCfsQ6+L2nph/eYnH9uIaJ0Yll/FW1n2rf5Yi0WFTnISSqBPPDQTF+f7Eudk2qyqvBMvMS65pVIOtOOkkyvcXkjRFaOfsPYLPQ/S7A8V4/ddH09LsQ1yqun1jw2F9Y8JR0OtNm8UdkkjIPppUCT2E0uTU+7a4Lb0O7dL0nQIDAQAB"
+      },
+      "cordova-plugin-local-notification": {
+        "ANDROID_SUPPORT_V4_VERSION": "26.+"
+      },
+      "cordova-plugin-health": {
+        "HEALTH_READ_PERMISSION": "App needs read access to nutrition and body weight information to sync user data for nutrition suggestion algorithm.",
+        "HEALTH_WRITE_PERMISSION": "App needs write access to nutrition and body weight information to sync user data for nutrition suggestion algorithm.",
+        "FIT_API_VERSION": "20.0.0",
+        "PLAY_AUTH_VERSION": "19.0.0"
+      }
+    },
+    "platforms": [
+      "browser",
+      "ios",
+      "android"
+    ]
+  }
+}

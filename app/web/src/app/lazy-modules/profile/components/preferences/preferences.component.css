@@ -1,0 +1,154 @@
+mat-form-field {
+  min-width: 60%;
+  text-align: center;
+}
+
+.wrapper {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  min-width: 290px;
+}
+
+mat-label {
+  -ms-word-break: break-all;
+  word-break: break-all;
+  /* Non standard for WebKit */
+  word-break: break-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
+}
+
+mat-card {
+  display: block;
+  margin: auto;
+  min-width: 40%;
+  width: 95%;
+  text-align: center;
+  margin-bottom:20px;
+}
+
+.inputTitle {
+  text-align: center;
+  font-weight: bold;
+  font-size: 300%;
+}
+
+mat-button-toggle-group {
+  font-size: medium;
+  width: 90%;
+}
+
+mat-button-toggle {
+  width: 50%;
+}
+
+.preferenceTable {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.preferenceHeader {
+  font-size: medium;
+  font-weight: bold;
+}
+
+mat-select,
+mat-option {
+  text-align: center;
+}
+
+.buttonsWrapper button {
+  margin-top: 10px;
+  width: 60%;
+  width: 200px;
+}
+
+
+.generalPreferencesCard,
+.nutritionPreferencesCard {
+  margin-top: 10px;
+}
+
+::ng-deep .editSelects .mat-select-arrow {
+  border: none !important;
+}
+
+.existingTempDisplay,
+.newTempButton {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.tempTitle {
+  font-size: large;
+}
+
+
+.tempTable {
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tempTitle {
+  width: 220px;
+  overflow: hidden;
+  margin-right: 2.5px;
+  border-bottom-color: black;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+}
+
+.newTemplateTitle {
+  border-bottom-style: dotted;
+  font-style: italic;
+}
+
+.deletetemp,
+.editTemp {
+  width: 26px;
+}
+
+.editTemp mat-icon,
+.deleteTemp mat-icon,
+.newTemplateButton mat-icon {
+  border-radius: 5px !important;
+  width: 100%;
+}
+
+.newTemplateButton {
+  width: 52px
+}
+
+.deleteTemp:hover,
+.editTemp:hover,
+.newTemplateButton:hover {
+  cursor: pointer;
+}
+
+.maxTempsWarning {
+  width: 100%;
+  font-size: large;
+  border-bottom-style: dotted;
+}
+
+.preferenceTable tr td {
+  width:50%;
+}
+
+.buttonGroup{
+  margin-top:15px;
+}
+
+
+.spinnerWrapper{
+  height:92.5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top:15px;
+}

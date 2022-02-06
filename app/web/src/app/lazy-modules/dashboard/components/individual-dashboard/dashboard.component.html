@@ -1,0 +1,45 @@
+<div class='bigWrapper'>
+  <div class="aboveDashboard">
+    <div class='setMainMessage' *ngIf='showSetMainLogPrompt()'>
+      <mat-card class="messageCard lsGradientBackgroundColor">
+        <div class='setMainMessageHeader lsThemeText'>
+          <mat-icon>timeline</mat-icon>&nbsp;
+          <span class="mainLogHeader">Set Your Main Log!</span>
+          &nbsp;<mat-icon>timeline</mat-icon>
+        </div>
+        <mat-divider></mat-divider>
+        Your main log will be the first thing you see every time you sign-in. You can change which log is set as your
+        main log any time. In your main log, you keep daily records of your calorie intake and body weight. We suggest
+        starting a new main log whenever you decide to start a new nutritional phase. To learn more about best practices
+        and recommendations for LogSmarter™, check out our <a class="resourcesLink lsHoverText"
+          (click)="goToResources()">resources section.</a>
+      </mat-card>
+      <button mat-raised-button (click)='openMainDialog()' class="noNutrLog">
+        <mat-icon>library_books</mat-icon> Set Main Nutrition Log
+      </button>
+    </div>
+    <div *ngIf='showMainLogSummary()' class='summaryContainer'>
+      <app-log-summary [logModel]="mainNutritionLog" [payload]="mainLogPayload">
+      </app-log-summary>
+      <div class='buttonGroup' *ngIf="this.environmentService.isMobile">
+        <button mat-raised-button class="buttonGroupButton syncWithHealthKit" type='button' (click)="openHealthSync()">
+          <div class='buttonFlexManager' fxLayout="row">
+            <div class='buttonIconWrapper hkHeart'>
+              <mat-icon>flip_camera_android</mat-icon>
+            </div>
+            <div class='buttonTextWrapper smallText lsThemeText' *ngIf="this.environmentService.isiOS">
+              &nbsp; Sync Main Log With Apple Health
+            </div>
+            <div class='buttonTextWrapper smallText lsThemeText' *ngIf="this.environmentService.isAndroid">
+              &nbsp; Sync Main Log With Google Fit
+            </div>
+          </div>
+        </button>
+      </div>
+    </div>
+    <log-smarter-spinner-wheel *ngIf="showSpinner" [spinnerMessage]="SPINNER_MESSAGE"></log-smarter-spinner-wheel>
+  </div>
+  <div class="dashboardWrapper">
+    <app-social-dashboard></app-social-dashboard>
+  </div>
+</div>

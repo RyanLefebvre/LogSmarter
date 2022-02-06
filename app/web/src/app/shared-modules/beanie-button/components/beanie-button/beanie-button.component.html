@@ -1,0 +1,14 @@
+<log-smarter-spinner-wheel *ngIf="loadingPortal && !hideEverythingForError" [spinnerMessage]="this.spinnerMessage">
+</log-smarter-spinner-wheel>
+<button mat-raised-button class="editButton buttonGroupButton beanie-button" [disabled]="disableBeanieButton()"
+  type="button" *ngIf="!loadingPortal && !hideEverythingForError">
+  <div class='buttonFlexManager' fxLayout="row">
+    <div class='buttonIconWrapper'>
+      <mat-icon>
+        arrow_circle_up</mat-icon>
+    </div>
+    <div class='buttonTextWrapper'>
+      &nbsp; GO PREMIUM
+    </div>
+  </div>
+</button>

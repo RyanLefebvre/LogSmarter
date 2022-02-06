@@ -1,0 +1,69 @@
+<div class="bigWrapper" >
+  <div [ngClass]="{'forceSpinnerToMiddle':this.showSpinner}" class="spinnerWrapper" *ngIf='this.showSpinner'>
+    <log-smarter-spinner-wheel  [noMessage]="true"></log-smarter-spinner-wheel>
+  </div>
+  <div>
+    <div class='graph'  *ngIf='!this.showSpinner'>
+      <canvas *ngIf="this.graphTypeName == this.GRAPH_TYPE_SCATTER" baseChart [chartType]="'scatter'"
+        [datasets]="chartData" [options]="chartOptions" [legend]="true"></canvas>
+      <canvas *ngIf="this.graphTypeName == 'line'" baseChart [chartType]="'line'" [datasets]="chartData"
+        [options]="chartOptions" [legend]="true" [labels]="chartLabels"></canvas>
+    </div>
+    <div class='buttons' *ngIf="this.graphTypeName == this.GRAPH_TYPE_SCATTER">
+      <div class="flexManager">
+        <div class="showRightBorder">
+          <mat-select class="graphSelect" class='graphType' (selectionChange)="updateGraphInfo( 't' , $event.value)"  [disabled]="this.showSpinner"
+            [(value)]='this.graphTypeName'>
+            <mat-option value='scatter' *ngIf="tierPermissionService.getUserTier().inDepthStats">Scatter</mat-option>
+            <mat-option value='line'>Line</mat-option>
+          </mat-select>
+        </div>
+        <div class='showRightBorder flexChildWrapper'>
+          <div class="flexChild ">
+            <div class=" flexGrandChild lsThemeText">&nbsp;X:</div>
+            <mat-select class="graphSelect" (selectionChange)="updateGraphInfo( 'x' , $event.value)" name="xAxis"  [disabled]="this.showSpinner"
+              [value]="this.xAxisName">
+              <mat-option *ngIf="this.graphTypeName != this.GRAPH_TYPE_SCATTER" value="date"> Date </mat-option>
+              <mat-option value="calories">Calories</mat-option>
+              <mat-option value="weight">Weight</mat-option>
+            </mat-select>
+          </div>
+        </div>
+        <div class='flexChildWrapper'>
+          <div class="flexChild ">
+            <div class=" flexGrandChild lsThemeText">&nbsp;Y:</div>
+            <mat-select class="graphSelect" (selectionChange)="updateGraphInfo( 'y' , $event.value)" name="yAxis"  [disabled]="this.showSpinner"
+              [value]="this.yAxisName">
+              <mat-option value="calories">Calories</mat-option>
+              <mat-option value="weight">Weight</mat-option>
+            </mat-select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class='buttons' *ngIf="this.graphTypeName == this.GRAPH_TYPE_LINE">
+      <div class="flexManager">
+        <div class="showRightBorder">
+          <mat-select class="graphSelect graphType" (selectionChange)="updateGraphInfo( 't' , $event.value)"  [disabled]="this.showSpinner"
+            [(value)]='this.graphTypeName'>
+            <mat-option value='scatter' *ngIf="tierPermissionService.getUserTier().inDepthStats">Scatter</mat-option>
+            <mat-option value='scatter' *ngIf="!(tierPermissionService.getUserTier().inDepthStats)" [disabled]="true">
+              <mat-icon class="lock">lock</mat-icon>
+            </mat-option>
+            <mat-option value='line'>Line</mat-option>
+          </mat-select>
+        </div>
+        <div class='flexChildWrapper'>
+          <div class="flexChild ">
+            <div class=" flexGrandChild lsThemeText">&nbsp;Y:</div>
+            <mat-select class="graphSelect" (selectionChange)="updateGraphInfo( 'y' , $event.value)" name="yAxis"
+              [value]="this.yAxisName"  [disabled]="this.showSpinner">
+              <mat-option value="calories">Calories</mat-option>
+              <mat-option value="weight">Weight</mat-option>
+            </mat-select>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

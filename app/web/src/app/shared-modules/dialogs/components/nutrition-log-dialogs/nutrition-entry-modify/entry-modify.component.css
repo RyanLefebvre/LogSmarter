@@ -1,0 +1,196 @@
+.mainDisplay{
+  width:100%;
+  max-width:400px;
+}
+
+label {
+  display: block;
+  margin: auto;
+  text-align: center;
+}
+
+.inputTitle {
+  font-weight: bold;
+  font-size: x-large;
+}
+
+mat-form-field {
+  text-align: center;
+  width: 100%;
+}
+
+button {
+  width: 100%;
+  height: 50%;
+}
+
+.buttonTable {
+  border: none;
+  width: 70%;
+  margin: auto;
+}
+
+.fullList {
+  color: red;
+  font-weight: bold;
+  text-align: center;
+  width: 100%;
+  max-width: 315px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cellContentWrapper {
+  text-overflow: ellipsis;
+  max-width: 100%;
+  display: block;
+  margin: auto;
+}
+
+.variableTableWrapper th {
+  position: -webkit-sticky;
+  /* for Safari */
+  position: sticky;
+  top: 0;
+  box-shadow: 1px 0 0 1px #c0c0c0;
+}
+
+.variables {
+  text-align: center;
+}
+
+.variables table {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+  table-layout: fixed;
+  width: 100%;
+}
+
+.hugTable {
+  display: block;
+  margin: auto;
+  height: 100%;
+}
+
+td {
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.variables table td,
+.variables table tr {
+  border-color: #C0C0C0;
+  border-style: solid;
+  border-width: 2px;
+}
+
+.variables table th {
+  border-color: #c0c0c0;
+  border-style: solid;
+  border-width: 2px;
+}
+
+input {
+  border-color: transparent;
+  text-align: center;
+}
+
+.headers {
+  color: ghostwhite
+}
+
+.cellContentWrapper input {
+  width: 100%;
+}
+
+.displayContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  max-height: 315px;
+  margin-top: 15px;
+
+}
+
+.maxEntriesError {
+  display: block;
+  margin: auto;
+  text-align: center;
+  font-size: small;
+}
+
+mat-dialog-content {
+  overflow: hidden;
+}
+
+.submitButtonContainer {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+}
+
+.submitButtonContainer button {
+  width: 220px;
+}
+
+.varTable tr td,
+.varTable tr th {
+  width: 50%;
+}
+
+.spinnerMessage {
+  width: 100%;
+  text-align: center;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.logTitle mat-icon {
+  float: left;
+}
+
+.logTitle {
+  width: 100%;
+  font-size: large;
+  text-align: center;
+  font-weight: bold;
+}
+
+.realTitle {
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+form {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.maxEntryError {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  text-align: center;
+  color: red;
+  font-style: italic;
+}
+
+mat-form-field{
+  width:90%;
+  display: block;
+  margin:auto;
+}
+
+.spinnerWrapper{
+  margin-top:20px;
+  }
+  
+.disabledDateInput{
+  padding-left:24px;
+}

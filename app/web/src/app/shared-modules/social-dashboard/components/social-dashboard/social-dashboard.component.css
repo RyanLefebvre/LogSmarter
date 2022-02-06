@@ -1,0 +1,36 @@
+#parent {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1600px;
+  margin-left: auto;
+  margin-right: auto;
+  height: fit-content;
+}
+
+#header {
+  text-align: center;
+  font-weight: bold;
+  width: 100%;
+  font-size: xx-large
+}
+
+#embed-parent {
+  flex-grow: 1;
+  width: 23%;
+  min-width: 290px;
+}
+
+.button-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.button {
+  width: 250px;
+  background-color: #fff;
+  color: black;
+}

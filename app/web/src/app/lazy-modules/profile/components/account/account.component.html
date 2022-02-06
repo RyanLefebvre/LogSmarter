@@ -1,0 +1,94 @@
+<mat-card class='generalPreferencesCard'>
+  <mat-card-content>
+    <h1 style="font-size:x-large; text-align: left;"> Subscription
+      <mat-icon class="lsThemeText" style="float:right;">card_giftcard</mat-icon>
+    </h1>
+    <mat-divider></mat-divider>
+    <div class="preferenceTableWrapper">
+      <form [formGroup]="promoCodeForm">
+        <table class="preferenceTable">
+          <tr>
+            <td class='lsThemeText preferenceHeader'>Type </td>
+            <td class="subscriptionValue">
+              <div class="mimicHeight">
+                {{tierPermissionsManager.getDisplayNameForTier()}}
+              </div>
+            </td>
+          </tr>
+          <mat-divider></mat-divider>
+          <tr *ngIf="this.isGoldUser() ">
+            <td class="lsThemeText preferenceHeader">Referrals </td>
+            <td class="subscriptionValue">
+              <div class="mimicHeight">
+                {{ this.tierPermissionsManager.stateManager.getCurrentUser().numReferrals || 0}}
+              </div>
+            </td>
+          </tr>
+          <mat-divider *ngIf="this.isGoldUser() "></mat-divider>
+          <tr *ngIf="this.isGoldUser() ">
+            <td class='lsThemeText preferenceHeader'>Promo Code </td>
+            <td class="subscriptionValue">
+              <mat-form-field class="hideUnderLineWhenDisabled noPaddingFormField">
+                <input matInput [formControlName]="FORM_CONTROL_PROMO_CODE" type="text" maxlength="25"
+                  [disableControl]="!this.promoCodeBeingEdited()">
+              </mat-form-field>
+            </td>
+          </tr>
+          <mat-divider *ngIf="this.isGoldUser() "></mat-divider>
+        </table>
+        <div class="buttonGroup" *ngIf="this.isGoldUser()   && !showPromoSpinner">
+          <button mat-raised-button *ngIf="this.showEditPromoCodeFormButton()" class="editButton buttonGroupButton"
+            [disabled]="this.profileControl.currentEditValue() != this.profileControl.NOT_EDITING"
+            (click)="this.toggleEditPromoCode()">
+            <div class='buttonFlexManager' fxLayout="row">
+              <div class='buttonIconWrapper'>
+                <mat-icon>edit</mat-icon>
+              </div>
+              <div class='buttonTextWrapper'>
+                &nbsp; EDIT PROMO CODE
+              </div>
+            </div>
+          </button>
+          <div *ngIf="this.promoCodeBeingEdited() ">
+            <button type="submit" mat-raised-button class="submit greenButton buttonGroupButton"
+              (click)="this.updatePromoCode()">
+              <div class='buttonFlexManager' fxLayout="row">
+                <div class='buttonIconWrapper'>
+                  <mat-icon>done_outline</mat-icon>
+                </div>
+                <div class='buttonTextWrapper'>
+                  &nbsp; CONFIRM
+                </div>
+              </div>
+            </button>
+            <button mat-raised-button class="cancel blueButton buttonGroupButton" (click)="this.toggleEditPromoCode()">
+              <div class='buttonFlexManager' fxLayout="row">
+                <div class='buttonIconWrapper'>
+                  <mat-icon>cancel_presentation</mat-icon>
+                </div>
+                <div class='buttonTextWrapper'>
+                  &nbsp; CLOSE
+                </div>
+              </div>
+            </button>
+          </div>
+        </div>
+        <div class="buttonGroup" *ngIf="!this.isGoldUser()">
+          <app-beanie-button></app-beanie-button>
+          <button class="lsThemeButton buttonGroupButton" mat-raised-button
+            [disabled]="hasSubscriptionAlready() || (this.profileControl.currentEditValue() != this.profileControl.NOT_EDITING)"
+            *ngIf="this.environmentService.isiOS" (click)="restorePurchases()">
+            <div class='buttonFlexManager' fxLayout="row">
+              <div class='buttonIconWrapper'>
+                <mat-icon>restore</mat-icon>
+              </div>
+              <div class='buttonTextWrapper'>
+                &nbsp; RESTORE PURCHASES
+              </div>
+            </div>
+          </button>
+        </div>
+      </form>
+    </div>
+  </mat-card-content>
+</mat-card>

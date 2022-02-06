@@ -1,0 +1,172 @@
+h1 {
+  font-size: 190%;
+  margin-left: 5px;
+  overflow-x: hidden;
+  background-color: white;
+}
+
+.bigWrapper {
+  border-radius: 4px;
+  display: block;
+  margin: auto;
+  text-align: center;
+  position: relative;
+  max-width: 725px;
+  background-color: white;
+  height: fit-content;
+  padding: 2px;
+}
+
+.headerWrapper {
+  border-radius: 4px;
+  background-color: white;
+  height: 53px;
+  display: flex;
+}
+
+.headerContent {
+  height: fit-content;
+  align-self: center;
+  width: 100%;
+}
+
+.nutrLogIcon {
+  margin-left: 5px;
+  margin-top: 5px;
+  width: fit-content;
+  margin-right: 5px;
+  margin-bottom: 0;
+  float: left;
+}
+
+.logTitle {
+  overflow-x: auto;
+  white-space: nowrap;
+  font-size: x-large;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width:80%;
+}
+
+.payloadGoalFlexManager{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width:100%;
+}
+
+.payloadGoalFlexManager div{
+  width:30%;
+  min-width:120px;
+}
+
+.overView,
+.buttons {
+  text-align: center;
+  position: relative;
+  margin: auto;
+  font-size: small;
+}
+
+.matMenuButton {
+  border: none;
+}
+
+table,
+th,
+td {
+  text-align: center;
+}
+
+
+td {
+  width: 25%;
+}
+
+mat-card {
+  padding-bottom: 0 !important;
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+}
+
+table {
+  width: 100%;
+  margin-top: 0;
+  height: 157px;
+  border-bottom-width: 0;
+  border-top: 1px solid #C0C0C0;
+}
+
+.showRightBorder {
+  border-right: 1px solid #C0C0C0;
+}
+
+.showBottomBorder {
+  border-bottom: 1px solid #C0C0C0;
+}
+
+.title {
+  font-weight: bold;
+}
+
+.var {
+  color: ghostwhite;
+}
+
+.open {
+  border-radius: 0px 0px 0px 4px
+}
+
+.settings {
+  border-radius: 0px 0px 4px 0px
+}
+
+.edit {
+  border-radius: 0;
+  border-right: 1px solid #c0c0c0;
+  border-left: 1px solid #c0c0c0;
+}
+
+button {
+  border-top: 1px solid #c0c0c0;
+}
+
+.halfRightButton {
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+  border-left-width: 1px;
+}
+
+.halfLeftButton {
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+  border-right-width: 2px;
+}
+
+.halfButton:hover {
+  cursor: pointer;
+  background-color: var(--main-color-darker) !important;
+  border-color: var(--main-color-darker);
+}
+
+.giveBackBorder {
+  border-style: solid;
+  border-width: 2px;
+  border-color: #c0c0c0;
+}
+
+.buttonGroup{
+  display: flex;
+  flex-direction:row;
+  justify-content: space-evenly;
+  max-width:500px;
+  width:100%;
+  margin-bottom:10px;
+}
+
+.buttonGroupButton{
+  width:45%;
+  max-width:220px;
+  min-width:135px;
+}

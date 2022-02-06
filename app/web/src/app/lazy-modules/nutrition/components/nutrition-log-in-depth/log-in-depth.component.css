@@ -1,0 +1,69 @@
+.maxWidth {
+  display: block;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1600px;
+  width:100%;
+  padding-top:10px;
+}
+
+.inDepth {
+  min-width: 295px;
+  flex: 1.75;
+  width: 36.5%;
+}
+
+.listView {
+  min-width: 295px;
+  flex: 1;
+  width: 63.5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.listView,
+.inDepth {
+  margin-bottom: 5px;
+}
+
+.centerDiv {
+  width: 95%;
+  display: block;
+  margin: auto;
+  height: 100%;
+  max-height: 900px;
+}
+
+.centerDivBigger {
+  width: 95%;
+  display: block;
+  margin: auto;
+  min-width:300px;
+  max-height: 900px;
+}
+
+app-in-depth-display,
+app-list-view {
+  display: block;
+  margin: auto;
+  /* Was getting weird margin at top,
+     not aligning with lsit view */
+  margin-top: 0;
+  height: 100%;
+}
+
+log-smarter-spinner-wheel {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15%;
+}
+
+.forceCenterOnUltraLong {
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

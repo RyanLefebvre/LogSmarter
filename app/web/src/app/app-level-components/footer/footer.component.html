@@ -1,0 +1,52 @@
+<div class="fillSpaceOnMobile" *ngIf="showMobileNav()">
+
+</div>
+<div class='footerBigWrapper' *ngIf="this.environmentService.isWeb">
+  <div class='flexMaster'>
+    <div class='leftChild footerWrapperChild'>
+      <div class="textureHolder">
+        <img class='leftFooterLogo' src='./assets/cube-min.png' alt='LS logo for footer'>
+      </div>
+      <div class='imageSubtext'> FOLLOW US </div>
+      <table class='lsSocialTable'>
+        <tr>
+          <td>
+            <a href="https://www.youtube.com/channel/UC7eJSb_q0YHU7z9-YpstCAQ/featured">
+              <i class="fab fa-youtube lsHoverText fa-spin-hover"></i>
+            </a>
+          </td>
+          <td>
+            <a href="https://www.instagram.com/log_smarter/">
+              <i class="fab fa-instagram-square lsHoverText fa-spin-hover"></i>
+            </a>
+          </td>
+          <td>
+            <a href="https://www.linkedin.com/company/28448745">
+              <i class="fab fa-linkedin lsHoverText fa-spin-hover"></i>
+            </a>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class='middleChild footerWrapperChild'>
+      <ul class='middleChildList'>
+        <li><a class='lsHoverText' routerLink="info/terms">Terms of Service</a></li>
+        <li><a class='lsHoverText' routerLink="info/privacy">Privacy Policy</a></li>
+      </ul>
+    </div>
+    <div class='rightChild footerWrapperChild'>
+      <div class='contact'> CONTACT US </div>
+      <div class="contactInfo"> <span>
+          <a href="mailto:Support@LogSmarter.net"><i
+              class="fa fa-envelope lsHoverText fa-spin-hover contactMail"></i></a></span>
+        <a class='lsHoverText email' href="mailto:Support@LogSmarter.net">
+          Support@LogSmarter.net
+        </a>
+      </div>
+      <div class='copyright'>
+        Copyright © {{currentYear}} LogSmarter™ LLC.
+      </div>
+
+    </div>
+  </div>
+</div>

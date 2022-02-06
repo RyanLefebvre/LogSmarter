@@ -1,0 +1,138 @@
+.timePeriodStats {
+  background-color: white;
+  margin-top: 10px;
+  border: 2px solid #C0C0C0;
+  border-bottom-width: 1px;
+}
+
+.noContain {
+  min-height: 100%;
+}
+
+.timePeriodTitle {
+  height: 55%;
+  font-weight: bold;
+  font-size: x-large;
+  text-align: center;
+  min-height: 40px;
+  border-color: #c0c0c0;
+  border-style: solid;
+  border-width: 1px;
+  border-top: none;
+}
+
+.colTitles {
+  font-weight: bold;
+  color: ghostwhite;
+  border-color: #C0C0C0;
+  border-width: 1px;
+  border-style: solid;
+  border-top: none;
+}
+
+.colTitles th {
+  border-color: #c0c0c0;
+  border-width: 1px;
+  border-style: solid;
+  /* Avoid border overlap */
+  border-top: none;
+  border-bottom: none;
+}
+
+.colHeaderWrapper {
+  display: block;
+  margin: auto;
+  padding: auto;
+  height: 20px;
+  max-height: 50px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-size: small;
+  width: 85px;
+  text-align: center;
+}
+
+
+.colContentWrapper {
+  display: block;
+  margin: auto;
+  height: 20px;
+  max-height: 50px;
+  overflow: hidden;
+  font-size: small;
+  width: 85px;
+  text-align: center;
+}
+
+
+table {
+  width: 101%;
+  margin: 0 auto;
+  text-align: center;
+  background-color: white;
+  border-top: none;
+}
+
+
+.gridViewContainerSortByNotDay {
+  overflow-x: scroll;
+  width: 100%;
+}
+
+.gridViewContainerSortByDay {
+  height: 100%;
+}
+
+.stickyHeader th {
+  position: -webkit-sticky;
+  /* for Safari  */
+  position: sticky;
+  top: 0;
+  /* Bottom border color */
+  box-shadow: inset 0 0 0 #c0c0c0, inset 0 -1px 0 #c0c0c0;
+}
+
+.entries:hover,
+.noEntries:hover {
+  cursor: pointer;
+}
+
+.var {
+  color: ghostwhite;
+}
+
+.min {
+  background-color: #f4424b;
+  color: white;
+}
+
+.max {
+  color: white;
+  background: #31bf49;
+}
+
+.avg {
+  background-color: #4286f4;
+  color: white;
+}
+
+td {
+  text-align: center;
+  border: 1px solid #C0C0C0;
+  background-color: white;
+}
+
+.settings {
+  float: right;
+  background-color: white;
+  color: grey;
+  top: 2px;
+  right: 2px;
+}
+
+.varHeaders {
+  border-color: #c0c0c0;
+  border-style: solid;
+  border-width: 1px;
+  border-top: none;
+}

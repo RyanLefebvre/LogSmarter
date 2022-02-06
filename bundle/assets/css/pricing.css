@@ -1,0 +1,127 @@
+.matCard {
+    width: 95%;
+    min-width: 310px;
+    max-width: 1300px;
+    font-size: large;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    text-align: center;
+    text-transform: uppercase;
+    justify-content: space-evenly;
+    background-color: white;
+    color: black;
+    border-radius: 7px;
+}
+
+@media (min-width: 1100px) {
+    .matCard {
+        flex-direction: row;
+        margin-bottom: 0;
+    }
+}
+
+.pricing-plan {
+    border-bottom: 1px solid #43dbbd;
+    flex-basis: 20%;
+    flex-grow: .45;
+}
+
+.pricing-plan:last-child {
+    border-bottom: none;
+}
+
+@media (min-width: 1100px) {
+    .pricing-plan {
+        border-bottom: none;
+        border-right: 1px solid #43dbbd;
+        padding: 10px;
+    }
+
+    .pricing-plan:last-child {
+        border-right: none;
+    }
+}
+
+.pricing-img {
+    margin-bottom: 25px;
+    max-width: 100%;
+}
+
+.pricing-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 90px;
+    margin-bottom: 15px;
+}
+
+.pricing-header h2 {
+    color: #888;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.pricing-features {
+    list-style-type: none;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin: 25px 0 12px;
+    padding: 0;
+    height: fit-content;
+    margin-top: 0;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.featuresHolder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 315px;
+}
+
+@media (min-width: 1100px) {
+    .pricing-features {
+        margin: 50px 0 25px;
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
+}
+
+.pricing-features-item {
+    border-top: 1px solid #43dbbd;
+    font-size: 12px;
+    line-height: 1.5;
+    padding: 15px 0;
+}
+
+.pricing-features-item:first-child {
+    border-top: none;
+}
+
+.pricing-features-item:last-child {
+    border-bottom: none;
+}
+
+.pricing-plan .lsThemeText {
+    display: block;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.buttonGroup {
+    margin-bottom: 20px;
+}
+
+.tierName {
+    margin-top: 20px;
+}
+
+.emailWrapper {
+    font-size: medium;
+}

@@ -1,0 +1,42 @@
+.logSmarterWrapper{
+  height: 100%;
+}
+
+app-footer {
+  width: 100vw;
+  text-align: center;
+  color: ghostwhite;
+  position: relative;
+  height: 10vh;
+
+}
+
+.pageContent {
+  min-height: 97vh;
+  height:fit-content;
+  display: block;
+  margin: auto;
+}
+
+.appSpinnerWrapper{
+    height:100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.openSourceMessageWrapper{
+  background-color:white;
+}
+
+.openSourceMessage{
+	width:95%;
+	margin:auto;
+	padding-top:10px;
+	padding-bottom:10px;
+}
+
+.openSourceMessage a{
+  font-size:small;
+}

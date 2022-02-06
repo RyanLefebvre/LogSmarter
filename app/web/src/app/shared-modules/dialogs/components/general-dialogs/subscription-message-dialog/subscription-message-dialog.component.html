@@ -1,0 +1,33 @@
+<div class="wrapper">
+  <div class='header'>
+    <div class='logTitle'>
+      <mat-icon class='lsThemeText'>report_problem</mat-icon>
+      <div class='realTitle'>{{data.title}}</div>
+    </div>
+  </div>
+  <mat-divider></mat-divider>
+  <div mat-dialog-content>
+    <p>{{data.message}}</p>
+
+    <p class="center" *ngIf="data.showContact">For more info, contact:
+      <a class='lsHoverText' href="mailto:Support@LogSmarter.net">
+        Support@LogSmarter.net
+      </a>
+    </p>
+  </div>
+  <div class="buttonGroup">
+
+    <app-beanie-button></app-beanie-button>
+
+    <button mat-button (click)="this.dialogRef.close()" class="blueButton buttonGroupButton">
+      <div class='buttonFlexManager' fxLayout="row">
+        <div class='buttonIconWrapper'>
+          <mat-icon>cancel_presentation</mat-icon>
+        </div>
+        <div class='buttonTextWrapper'>
+          &nbsp; CLOSE
+        </div>
+      </div>
+    </button>
+  </div>
+</div>

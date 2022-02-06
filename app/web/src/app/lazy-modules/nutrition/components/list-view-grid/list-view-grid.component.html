@@ -1,0 +1,98 @@
+<div *ngIf='!this.sortByDay'>
+  <div class='timePeriodTitle'>
+    {{timePeriod.startDate | date: 'MM/dd/yy'}} -
+    {{  filterEndDate(timePeriod.endDate) | date: 'MM/dd/yy'}}
+  </div>
+</div>
+
+<div [ngClass]=" !this.sortByDay ? 'gridViewContainerSortByNotDay' : 'gridViewContainerSortByDay' ">
+
+  <!-- Not sort by day  -->
+  <div *ngIf='!this.sortByDay'>
+    <table>
+      <tr class="colTitles">
+        <th class="lsBackgroundColor">
+          <div class="colHeaderWrapper">Date</div>
+        </th>
+        <th class="lsBackgroundColor">
+          <div class="colHeaderWrapper">Weight
+            ({{this.preferenceManager.getWeightUnits(this.stateManager.getCurrentUser().userPreferences.general.isImperial == true)}})
+          </div>
+        </th>
+        <th class="lsBackgroundColor">
+          <div class="colHeaderWrapper">Calories</div>
+        </th>
+      </tr>
+      <tr class='entries lsHoverText' *ngFor='let entry of timePeriod.listOfEntries'>
+        <td (click)='openEntryModify(entry.date)'>
+          <div class="colContentWrapper leftMost"> {{entry.date | date: 'MM/dd/yy'}} </div>
+        </td>
+        <td (click)='openEntryModify(entry.date)'>
+          <div class="colContentWrapper">{{entry.weight | WeightPipe }}</div>
+        </td>
+        <td (click)='openEntryModify(entry.date)'>
+          <div class="colContentWrapper">{{entry.calories | CaloriePipe }}</div>
+        </td>
+      </tr>
+      <!-- Handles case where list of entries is empty so that user is not looking at a blank screen -->
+      <tr class="noEntries lsHoverText" *ngIf='timePeriod.listOfEntries.length == 0'>
+        <td (click)="openEntryModify( timePeriod.startDate)">
+          <div class="colContentWrapper">{{timePeriod.startDate| date: 'MM/dd/yy'}}</div>
+        </td>
+        <td (click)="openEntryModify( timePeriod.startDate)">
+          <div class="colContentWrapper">-</div>
+        </td>
+        <td (click)="openEntryModify( timePeriod.startDate)">
+          <div class="colContentWrapper">-</div>
+        </td>
+
+      </tr>
+    </table>
+  </div>
+
+
+  <!-- Sort by day  -->
+  <div class='noContain' *ngIf='this.sortByDay'>
+    <table>
+      <thead>
+        <tr class="colTitles" [ngClass]="{'stickyHeader':this.stickyColHeaders()}">
+          <th class="lsBackgroundColor">
+            <div class="colHeaderWrapper">Date</div>
+          </th>
+          <th class="lsBackgroundColor">
+            <div class="colHeaderWrapper">Weight
+              ({{this.preferenceManager.getWeightUnits(this.stateManager.getCurrentUser().userPreferences.general.isImperial == true)}})
+            </div>
+          </th>
+          <th class="lsBackgroundColor">
+            <div class="colHeaderWrapper">Calories</div>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class='entries lsHoverText' *ngFor='let entry of timePeriod.listOfEntries'>
+          <td (click)='openEntryModify(entry.date)'>
+            <div class="colContentWrapper leftMost"> {{entry.date | date: 'MM/dd/yy'}} </div>
+          </td>
+          <td (click)='openEntryModify(entry.date)'>
+            <div class="colContentWrapper">{{entry.weight | WeightPipe }}</div>
+          </td>
+          <td (click)='openEntryModify(entry.date)'>
+            <div class="colContentWrapper">{{entry.calories | CaloriePipe}}</div>
+          </td>
+        </tr>
+        <tr class="noEntries lsHoverText" *ngIf="timePeriod.listOfEntries.length == 0">
+          <td (click)="openEntryModify( timePeriod.startDate)">
+            <div class="colContentWrapper">{{timePeriod.startDate| date: 'MM/dd/yy'}}</div>
+          </td>
+          <td (click)="openEntryModify( timePeriod.startDate)">
+            <div class="colContentWrapper">-</div>
+          </td>
+          <td (click)="openEntryModify( timePeriod.startDate)">
+            <div class="colContentWrapper">-</div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

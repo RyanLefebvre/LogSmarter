@@ -1,0 +1,103 @@
+.mainContent {
+    width: 95%;
+    min-width: 310px;
+    max-width: 1000px;
+    text-align: center;
+    font-size: large;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+  }
+  
+  .wrapper{
+    margin-bottom:20px;
+  }
+  
+  .card {
+    width: 95%;
+    min-width: 310px;
+    max-width: 1000px;
+    text-align: center;
+    font-size: large;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    background-color: white;
+    border-radius: 7px;
+    color:black;
+    padding-bottom:10px;
+  }
+  
+  .parent {
+    padding-top: 30px;
+    align-items: center;
+    align-content: stretch;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    justify-self: stretch;
+    width: 95%;
+    min-width: 310px;
+    max-width: 1100px;
+    flex-direction: row;
+  }
+
+  .reverseParent{
+      flex-direction: row-reverse;
+  }
+
+  
+  .person-parent {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 310px;
+    max-width: 1100px;
+    width: 30%;
+    height: 100%;
+  }
+  
+  .person-child { 
+      width:150px; 
+    padding-top: 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-spacing: 5px;
+  }
+  
+  .description {
+    min-width: 100px;
+    max-width: 600px;
+    text-align: left;
+
+    margin-left: 10px;
+  }
+  
+  .photo {
+    align-self: center;
+    border-radius: 30px;
+    height: 250px;
+    width: 265px;
+    background-image: url('https://i.ya-webdesign.com/images/blank-png-1.png');
+  }
+  
+  .button {
+    height: 48px;
+    width: 48px;
+    font-size: 24px;
+    color:#70726F;
+  } 
+
+  .employeeTitle{
+    font-size: 24px;
+    font-weight:bold;
+  }
+
+  hr{
+      margin:0;
+      margin-top:5px;
+      border-color:#c0c0c0;
+  }
