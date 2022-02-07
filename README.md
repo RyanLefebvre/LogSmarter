@@ -2,6 +2,8 @@
 
 ![header](readme-images/productMock.png)
 
+## Description
+
 `LogSmarter`  LogSmarter™ is not just another calorie counter. It is an AI nutrition
 coach that uses machine learning to help people reach and sustain their health goals.
 You tell us your demographic information and whether you want to gain muscle or
@@ -14,6 +16,8 @@ learns more about you, it will provide feedback to make sure you are following t
 latest evidence based nutrition recommendations
 
 ![bulk](readme-images/bulkingAlgo.png)
+
+## Open Source Changes
 
 The open source project has some minor changes to the paid application. The biggest is that the initial prediction from the machine learning model has been removed, the rest of the algorithm remains as it was,
 but we have not yet released the code or documentation around that model. The only other large difference is that we've disabled payment processing and given everyone the highest level of permissions within the system as the default when they create their account. That way, anyone who sets up the project doesn't need to worry about subscription state.
@@ -183,7 +187,7 @@ So inside environment.ts you would have
 11. Verify that the frontend documentation works and show 100% coverage using the command below. You should see a documentation directory that was generated inside the app directory. If you open the index.html file inside the documentation directory in a browser you can access the projects documentation.
 
 ```
-    npm run generateDocumentation
+    npm run doc
 ```
 
 12. Now that the frontend is good to go, you need to set up the firebase cloud functions for the project. This is most easily done using the firebase-cli. If you haven't already, install the cli which is part of the [firebase-tools package](https://www.npmjs.com/package/firebase-tools). Using the CLI, you will have to login, choose to use the project, then initialize cloud functions. When prompted, be sure to choose TypeScript as the functions language and be absolutely sure not to overwrite any existing files when it asks you. That will definitely break things if you start overwriting those files. If you aren't sure what your Project ID is, you can run the command `firebase projects:list` to see all your projects and find the one with the correct ID.
@@ -213,7 +217,7 @@ So inside environment.ts you would have
 15. Verify that the backend unit tests work and show 100% testing coverage using the command below. We had to use a different testing framework than the frontend because cloud functions don't like karma/jasmine :(
 
 ```
-    npm run testWithCoverage
+    npm run test
 ```
 
 16. At this point the project should be all set up for local development. Navigate to the frontend portion of the project (i.e. the app directory) and use the npm start command to run the project locally. Once the build finishes you can access the project on [localhost:4200](http://localhost:4200/)
