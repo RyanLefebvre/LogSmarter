@@ -4,7 +4,7 @@
 
 ## Description
 
-`LogSmarter`  LogSmarter™ is not just another calorie counter. It is an AI nutrition
+`LogSmarter` is not just another calorie counter. It is an AI nutrition
 coach that uses machine learning to help people reach and sustain their health goals.
 You tell us your demographic information and whether you want to gain muscle or
 lose fat. From there our proprietary machine learning algorithm will generate a goal
